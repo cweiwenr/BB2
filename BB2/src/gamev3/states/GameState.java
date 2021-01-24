@@ -33,8 +33,9 @@ public class GameState extends State{
 
 	@Override
 	public void render(Graphics g) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub	
 		background.render(g);
+		rock.render(g);
 		player.render(g);
 		player2.render(g);
 		rock.render(g);

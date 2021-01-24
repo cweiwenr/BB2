@@ -1,13 +1,18 @@
 package gamev3.entity.creature;
 
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
-import gamev3.GameMain;
 import gamev3.Handler;
+import gamev3.gfx.Animation;
 import gamev3.gfx.Assets;
 
 //now this is the class that we want the player to control
 public class Player extends Creature{
+	
+	//Animations
+	private Animation animRight, animStill, animLeft;
+	
 	//this variable allows us to access gamemain properties
 	private Handler handler;
 	private int id;
@@ -16,10 +21,19 @@ public class Player extends Creature{
 		super(handler, x, y, Creature.DEFAULT_CHARACTER_WIDTH, Creature.DEFAULT_CHARACTER_HEIGHT);
 		this.handler = handler;
 		this.id = id;
+		
+		//Animations
+		animRight = new Animation(30, Assets.player_right);
+		animaStill = new Animation(150,Assets.player_still);
+		animLeft = new Animation(30,Assets.player_left);
 	}
 
 	@Override
 	public void tick() {
+		//Animation
+		animRight.tick();
+		animStill.tick();
+		animLeft.tick();
 		//update any variables for the object
 		getInput();
 		move();
@@ -28,9 +42,9 @@ public class Player extends Creature{
 	//managing and handling what input does
 	private void getInput() {
 		xMove = 0;
-		
+
 		if(handler.getKeyManager().right1 && this.id == 1)
-				xMove = +speed;
+			xMove = +speed;
 		if(handler.getKeyManager().left1 && this.id == 1)
 			xMove = -speed;
 		if(handler.getKeyManager().right && this.id == 2)
@@ -41,7 +55,16 @@ public class Player extends Creature{
 	@Override
 	public void render(Graphics g) {
 		//drawimage takes in an int thus need to tpe cast
-		g.drawImage(Assets.player, (int)x, (int)y, null);
+		g.drawImage(getCurrentAnimationFrame(), (int)x, (int)y, null);
 	}
 
+	private BufferedImage getCurrentAnimationFrame() {
+		if(xMove<0) {
+			return animLeft.getCurrentFrame();
+		}else if(xMove > 0) {
+			return animRight.getCurrentFrame();
+		}else {
+			return animStill.getCurrentFrame();
+		}
+	}
 }
