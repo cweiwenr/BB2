@@ -9,9 +9,11 @@ import gamev3.gfx.Assets;
 public class Background extends Entity{
 
 	private GameMain game;
+	private final static int BACKGROUND_WIDTH = 1024;
+	private final static int BACKGROUND_HEIGHT = 512;
 	
 	public Background(GameMain game, float x, float y) {
-		super(x, y);
+		super(x, y,BACKGROUND_WIDTH,BACKGROUND_HEIGHT);
 		this.game = game;
 	}
 	@Override

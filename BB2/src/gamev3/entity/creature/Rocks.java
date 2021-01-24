@@ -9,9 +9,10 @@ import gamev3.gfx.Assets;
 public class Rocks extends Entity{
 
 	private GameMain game;
-	
+	public final static int ROCK_WIDTH = 10;
+	public final static int ROCK_HEIGHT = 10;
 	public Rocks(GameMain game, float x, float y) {
-		super(x, y);
+		super(x, y, ROCK_WIDTH, ROCK_HEIGHT);
 		this.game = game;
 		// TODO Auto-generated constructor stub
 	}

@@ -12,7 +12,7 @@ public class Player extends Creature{
 	private int id;
 	
 	public Player(GameMain game, float x, float y, int id) {
-		super(x, y);
+		super(x, y, Creature.DEFAULT_CHARACTER_WIDTH, Creature.DEFAULT_CHARACTER_HEIGHT);
 		this.game = game;
 		this.id = id;
 	}
