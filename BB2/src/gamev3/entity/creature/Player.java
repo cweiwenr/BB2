@@ -20,13 +20,13 @@ public class Player extends Creature{
 	@Override
 	public void tick() {
 		//update any variables for the object
-		if((game.getKeyManager().left) && this.id == 1)
+		if((game.getKeyManager().left) && this.id == 2)
 			x -=3;
-		if(game.getKeyManager().right && this.id == 1)
+		if(game.getKeyManager().right && this.id == 2)
 			x +=3;
-		if(game.getKeyManager().left1 && this.id == 2)
+		if(game.getKeyManager().left1 && this.id == 1)
 			x +=3;
-		if(game.getKeyManager().right1 && this.id == 2)
+		if(game.getKeyManager().right1 && this.id == 1)
 			x -=3;
 	}
 
