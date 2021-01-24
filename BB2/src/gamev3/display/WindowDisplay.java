@@ -40,6 +40,8 @@ public class WindowDisplay {
 		canvas.setPreferredSize(new Dimension(width, height));
 		canvas.setMaximumSize(new Dimension(width, height));
 		canvas.setMinimumSize(new Dimension(width, height));
+		//this set focusable so that jframe can listen for input
+		canvas.setFocusable(false);
 		
 		//adding the canvas onto the frame
 		frame.add(canvas);
@@ -50,5 +52,9 @@ public class WindowDisplay {
 	//this is important because canvas allows us to draw things on the screen
 	public Canvas getCanvas() {
 		return canvas;
+	}
+	//return the JFrame so we can access it in other classes
+	public JFrame getFrame() {
+		return frame;
 	}
 }
