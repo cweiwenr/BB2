@@ -24,7 +24,7 @@ public class Player extends Creature{
 		
 		//Animations
 		animRight = new Animation(30, Assets.player_right);
-		animaStill = new Animation(150,Assets.player_still);
+		animStill = new Animation(150,Assets.player_still);
 		animLeft = new Animation(30,Assets.player_left);
 	}
 
