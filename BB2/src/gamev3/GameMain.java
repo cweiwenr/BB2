@@ -2,10 +2,9 @@ package gamev3;
 
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
 
 import gamev3.display.WindowDisplay;
-import gamev3.gfx.BackgroundLoader;
+import gamev3.gfx.Assets;
 
 //allow game class to run on a thread, by implementing runnable
 public class GameMain implements Runnable{
@@ -28,7 +27,7 @@ public class GameMain implements Runnable{
 	private BufferStrategy bs;
 	private Graphics g;
 	
-	private BufferedImage testImage;
+
 	
 	public GameMain(String title, int width, int height) {
 		this.width = width;
@@ -39,10 +38,12 @@ public class GameMain implements Runnable{
 	
 	private void init() {
 		//this method will initialize all the graphics and get everything ready for our game
-		//we want this display here just so that it is running on the new thread that has been created
+		//we want this display here just so that it is running on the new thread 
 		display = new WindowDisplay(title, width, height);
-		testImage = BackgroundLoader.loadImage("/textures/background1.png");
+
 	}
+	
+	int x = 0;
 	
 	private void tick() {
 		
@@ -62,8 +63,12 @@ public class GameMain implements Runnable{
 		g.clearRect(0, 0, width, height);//this clears the entire screen
 		//graphics object allows us to draw things onto the buffer,
 		//Draw here
+		g.drawImage(Assets.background, 0, 0, null);
+		g.drawImage(Assets.player, 256, 410, null);
+		g.drawImage(Assets.player2, 768, 410, null);
+		/*
 		g.drawImage(testImage, 0, 0, null);
-		
+		g.drawImage(sheet.crop(20, 120, 20, 40), 256, 410, null);*/
 		//end drawing
 		bs.show();
 		g.dispose();
@@ -76,7 +81,7 @@ public class GameMain implements Runnable{
 			tick();
 			render();
 		}
-		//just incase the loo doesnt stop
+		//just incase the loop doesnt stop
 		stop();
 	}
 	
