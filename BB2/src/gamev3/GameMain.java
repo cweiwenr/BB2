@@ -38,6 +38,8 @@ public class GameMain implements Runnable{
 	//declaring variables to listen for key inputs
 	private KeyManager keyManager;
 	
+	private Handler handler;
+	
 	public GameMain(String title, int width, int height) {
 		this.width = width;
 		this.height = height;
@@ -53,9 +55,11 @@ public class GameMain implements Runnable{
 		display.getFrame().addKeyListener(keyManager);
 		Assets.init();	//have to call this init so that all the resources gets 'loaded'
 				
+		handler = new Handler(this);
+		
 		//initialize your game states here, we want them to init when we init this game main
-		gameState = new GameState(this);
-		menu = new Menu(this);
+		gameState = new GameState(handler);
+		menu = new Menu(handler);
 		State.setState(gameState);
 	}
 
@@ -134,6 +138,15 @@ public class GameMain implements Runnable{
 	public KeyManager getKeyManager() {
 		return keyManager;
 	}
+	
+	public int getWidth() {
+		return width;
+	}
+	
+	public int getHeight() {
+		return height;
+	}
+	
 	//method for starting new thread
 	public synchronized void start() {
 		//we have to check if game is already running, if so then do not start the whole thing again

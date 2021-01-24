@@ -2,7 +2,7 @@ package gamev3.states;
 
 import java.awt.Graphics;
 
-import gamev3.GameMain;
+import gamev3.Handler;
 import gamev3.entity.creature.Background;
 import gamev3.entity.creature.Player;
 import gamev3.entity.creature.Rocks;
@@ -15,12 +15,12 @@ public class GameState extends State{
 	private Background background;
 	private Rocks rock;
 	
-	public GameState(GameMain game) {
-		super(game);
-		background = new Background(game,0,0);
-		player = new Player(game, 256, 410, 1);
-		player2 = new Player(game, 768, 410, 2);
-		rock = new Rocks(game, 128,0);
+	public GameState(Handler handler) {
+		super(handler);
+		background = new Background(handler,0,0);
+		player = new Player(handler, 256, 410, 1);
+		player2 = new Player(handler, 768, 410, 2);
+		rock = new Rocks(handler, 128,0);
 	}
 	
 	@Override

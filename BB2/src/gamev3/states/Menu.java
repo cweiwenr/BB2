@@ -2,13 +2,13 @@ package gamev3.states;
 
 import java.awt.Graphics;
 
-import gamev3.GameMain;
+import gamev3.Handler;
 
 //every state you have should extend state
 public class Menu extends State{
 
-	public Menu(GameMain game) {
-		super(game);
+	public Menu(Handler handler) {
+		super(handler);
 		
 	}
 	@Override

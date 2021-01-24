@@ -2,15 +2,19 @@ package gamev3.entity;
 
 import java.awt.Graphics;
 
+import gamev3.Handler;
+
 //this is the main class where we can define players obstacles etc.
 public abstract class Entity {
 	//every entity need tick render x and y values.
 	//we choose float for coords so that it is smooth when the players move
+	protected Handler handler;
 	protected float x, y;
 	protected int width, height;
 	
 	
-	public Entity (float x, float y, int width, int height) {
+	public Entity (Handler handler, float x, float y, int width, int height) {
+		this.handler = handler;
 		this.x = x;
 		this.y = y;
 		this.width = width;

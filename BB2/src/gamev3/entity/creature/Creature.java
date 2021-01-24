@@ -1,5 +1,6 @@
 package gamev3.entity.creature;
 
+import gamev3.Handler;
 import gamev3.entity.Entity;
 
 public abstract class Creature extends Entity{
@@ -11,14 +12,27 @@ public abstract class Creature extends Entity{
 	
 	protected int life;
 	protected float speed;
+	protected float xMove;
 	
-	public Creature(float x, float y, int width, int height) {
+	public Creature(Handler handler, float x, float y, int width, int height) {
 		//super method leads to entity class constructor
-		super(x, y, width, height);	//with this every creature/ player has a position on the screen
+		super(handler, x, y, width, height);	//with this every creature/ player has a position on the screen
 		// TODO Auto-generated constructor stub
 		life = DEFAULT_HEALTH;
 		speed = DEFAULT_SPEED;
-		
+		xMove = 0;
+	}
+	
+	public void move() {
+		x += xMove;
+	}
+	//getters and setters
+	public float getxMove() {
+		return xMove;
+	}
+
+	public void setxMove(float xMove) {
+		this.xMove = xMove;
 	}
 
 	public int getLife() {

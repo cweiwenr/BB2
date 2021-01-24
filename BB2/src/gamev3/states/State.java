@@ -3,6 +3,7 @@ package gamev3.states;
 import java.awt.Graphics;
 
 import gamev3.GameMain;
+import gamev3.Handler;
 
 //this is an abstract class so that game can be at menu or gameplay etc.
 public abstract class State {
@@ -21,10 +22,10 @@ public abstract class State {
 	}
 	
 	//CLASS
-	protected GameMain game;
+	protected Handler handler;
 	
-	public State(GameMain game) {
-		this.game = game;
+	public State(Handler handler) {
+		this.handler = handler;
 	}
 	//every state has same things, tick and render method
 	public abstract void tick();

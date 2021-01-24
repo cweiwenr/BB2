@@ -15,8 +15,8 @@ public class KeyManager implements KeyListener{
 	
 	public void tick() {
 		//assigning variables to key inputs
-		right1 = keys[KeyEvent.VK_A];
-		left1 = keys[KeyEvent.VK_D];
+		left1 = keys[KeyEvent.VK_A];
+		right1 = keys[KeyEvent.VK_D];
 		right = keys[KeyEvent.VK_RIGHT];
 		left = keys[KeyEvent.VK_LEFT];
 		

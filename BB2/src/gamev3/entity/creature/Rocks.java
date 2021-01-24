@@ -3,17 +3,19 @@ package gamev3.entity.creature;
 import java.awt.Graphics;
 
 import gamev3.GameMain;
+import gamev3.Handler;
 import gamev3.entity.Entity;
 import gamev3.gfx.Assets;
 
 public class Rocks extends Entity{
 
-	private GameMain game;
+	private Handler handler;
 	public final static int ROCK_WIDTH = 10;
 	public final static int ROCK_HEIGHT = 10;
-	public Rocks(GameMain game, float x, float y) {
-		super(x, y, ROCK_WIDTH, ROCK_HEIGHT);
-		this.game = game;
+	
+	public Rocks(Handler handler, float x, float y) {
+		super(handler, x, y, ROCK_WIDTH, ROCK_HEIGHT);
+		this.handler = handler;
 		// TODO Auto-generated constructor stub
 	}
 
