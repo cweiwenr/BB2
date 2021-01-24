@@ -9,22 +9,24 @@ import gamev3.gfx.Assets;
 public class Player extends Creature{
 	//this variable allows us to access gamemain properties
 	private GameMain game;
-	public Player(GameMain game, float x, float y) {
+	private int id;
+	
+	public Player(GameMain game, float x, float y, int id) {
 		super(x, y);
 		this.game = game;
-		
+		this.id = id;
 	}
 
 	@Override
 	public void tick() {
 		//update any variables for the object
-		if(game.getKeyManager().left)
+		if((game.getKeyManager().left) && this.id == 1)
 			x -=3;
-		if(game.getKeyManager().right)
+		if(game.getKeyManager().right && this.id == 1)
 			x +=3;
-		if(game.getKeyManager().left1)
+		if(game.getKeyManager().left1 && this.id == 2)
 			x +=3;
-		if(game.getKeyManager().right1)
+		if(game.getKeyManager().right1 && this.id == 2)
 			x -=3;
 	}
 
