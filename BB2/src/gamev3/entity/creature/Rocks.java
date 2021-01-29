@@ -20,16 +20,25 @@ public class Rocks extends Entity{
 		this.handler = handler;
 		// TODO Auto-generated constructor stub
 	}
+	
+	//check if rock has gone off screen
+	public boolean isOffScreen() {
+		if (y > 512) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 
 	@Override
 	public void tick() {
-		// TODO Auto-generated method stub
+		//random speed per rock
 		y += Math.random() * (8 - 2 + 1) + 2;
 	}
 
 	@Override
 	public void render(Graphics g) {
-		// TODO Auto-generated method stub
+		//render out graphics for each rock with random sizes
 		g.drawImage(Assets.rocks, (int)x,(int)y,rock_size,rock_size,null);
 	}
 

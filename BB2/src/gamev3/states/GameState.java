@@ -32,6 +32,7 @@ public class GameState extends State{
 		for (int i = 0; i < NUM_ROCK; i++) {
 			rockSpawner.add(new Rocks(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
 		}
+		
 	}
 	
 	@Override
@@ -42,9 +43,15 @@ public class GameState extends State{
 		//rock.tick();
 		for (int i = 0; i < rockSpawner.size(); i++) {
 			rockSpawner.get(i).tick();
+			if (rockSpawner.get(i).isOffScreen()){
+				rockSpawner.remove(i);
+				rockSpawner.add(new Rocks(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+				rockSpawner.get(i).tick();
+			}
 		}
 	}
 
+	
 	@Override
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub	
