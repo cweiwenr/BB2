@@ -27,10 +27,6 @@ public abstract class Creature extends Entity{
 		moveX();
 
 	}
-	/*
-	protected boolean collistionWithEntity(int x, int y) {
-		
-	}*/
 	
 	public void moveX() {
 		//if upper right collision box reaches right limit of display box, 
@@ -39,16 +35,26 @@ public abstract class Creature extends Entity{
 		// the collision box
 		if(xMove > 0) {	//moving right
 			int temp_x= (int)(x + xMove + bounds.x + bounds.width);
+			//check if player has reached right border
 			if(temp_x < 1024) {
 				x += xMove;
+			}
+			//reset player position to make sure collision box lines
+			//with the border of the display
+			else {
+				x = 1024 - bounds.x - bounds.width;
 			}
 		}
 		//now we do the same for the left side, we did not add bounds.width
 		//because we are checking for the upper left pixel of the collision box
 		else if(xMove < 0) {	//moving left
 			int temp_x= (int)(x + xMove + bounds.x );
+			//check if player has reached left border
 			if(temp_x > 0) {
 				x += xMove;
+			}
+			else {
+				x = 0 - bounds.x;
 			}
 		}
 	}
