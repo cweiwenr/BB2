@@ -1,11 +1,11 @@
 package gamev3.states;
 
 import java.awt.Graphics;
-
 import gamev3.Handler;
 import gamev3.entity.creature.Background;
 import gamev3.entity.creature.Player;
 import gamev3.entity.creature.Rocks;
+
 
 //this is where the actual game is gg to be played at
 public class GameState extends State{
@@ -20,7 +20,7 @@ public class GameState extends State{
 		background = new Background(handler,0,0);
 		player = new Player(handler, 256, 410, 1);
 		player2 = new Player(handler, 768, 410, 2);
-		rock = new Rocks(handler, 128,0);
+		rock = new Rocks(handler, (float)(Math.random() * (768 - 256 + 1)+ 256),0);
 	}
 	
 	@Override

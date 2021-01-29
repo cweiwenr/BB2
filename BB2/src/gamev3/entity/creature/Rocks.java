@@ -22,7 +22,7 @@ public class Rocks extends Entity{
 	@Override
 	public void tick() {
 		// TODO Auto-generated method stub
-		y += 10;
+		y += 4;
 	}
 
 	@Override
