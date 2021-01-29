@@ -11,6 +11,9 @@ public class ImageLoader {
 	//the parameter is the location/ file path of the image
 	public static BufferedImage loadImage(String path) {
 		try {
+			//if you are facing input == null error, right click project
+			//build path and add bb2/resources to classpath
+			// make sure it is under class path
 			return ImageIO.read(ImageLoader.class.getResource(path));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
