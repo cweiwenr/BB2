@@ -13,7 +13,7 @@ public class Rocks extends Entity{
 	public final static int ROCK_WIDTH = 10;
 	public final static int ROCK_HEIGHT = 10;
 	//random rock size woooo
-	private int rock_size = (int)(Math.random() * (50 - 10 + 1)+ 10);
+	private int rock_size = (int)(Math.random() * (80 - 30 + 1)+ 30);
 	
 	public Rocks(Handler handler, float x, float y) {
 		super(handler, x, y, ROCK_WIDTH, ROCK_HEIGHT);
