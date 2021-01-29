@@ -15,7 +15,7 @@ public class GameState extends State{
 	private Player player;
 	private Player player2;
 	private Background background;
-	private Rocks rock;
+	//private Rocks rock;
 	//lets try to experiment with arraylist for rock spawner
 	final private int NUM_ROCK = 30;	//total rock on screen at one time
 	private ArrayList<Rocks> rockSpawner = new ArrayList<Rocks>();
@@ -27,7 +27,7 @@ public class GameState extends State{
 		background = new Background(handler,0,0);
 		player = new Player(handler, 256, 410, 1);
 		player2 = new Player(handler, 768, 410, 2);
-		rock = new Rocks(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0);
+		//rock = new Rocks(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0);
 		
 		for (int i = 0; i < NUM_ROCK; i++) {
 			rockSpawner.add(new Rocks(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
@@ -39,7 +39,7 @@ public class GameState extends State{
 		// TODO Auto-generated method stub
 		player.tick();
 		player2.tick();
-		rock.tick();
+		//rock.tick();
 		for (int i = 0; i < rockSpawner.size(); i++) {
 			rockSpawner.get(i).tick();
 		}
@@ -49,10 +49,9 @@ public class GameState extends State{
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub	
 		background.render(g);
-		rock.render(g);
+		//rock.render(g);
 		player.render(g);
 		player2.render(g);
-		rock.render(g);
 		for (int i = 0; i < rockSpawner.size(); i++) {
 			rockSpawner.get(i).render(g);
 		}

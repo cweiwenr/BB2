@@ -24,7 +24,7 @@ public class Rocks extends Entity{
 	@Override
 	public void tick() {
 		// TODO Auto-generated method stub
-		y += 4;
+		y += Math.random() * (8 - 2 + 1) + 2;
 	}
 
 	@Override
