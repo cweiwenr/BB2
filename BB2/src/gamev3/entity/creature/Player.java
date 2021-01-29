@@ -1,5 +1,6 @@
 package gamev3.entity.creature;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
@@ -21,6 +22,14 @@ public class Player extends Creature{
 		super(handler, x, y, Creature.DEFAULT_CHARACTER_WIDTH, Creature.DEFAULT_CHARACTER_HEIGHT);
 		this.handler = handler;
 		this.id = id;
+		
+		//collision box how many pixels left of the player
+		bounds.x = 5;
+		//collision box how many pixels down of the player
+		bounds.y = 4;
+		//size of collision box
+		bounds.width = 10;
+		bounds.height = 30;
 		
 		//Animations
 		animRight = new Animation(30, Assets.player_right);
@@ -54,8 +63,14 @@ public class Player extends Creature{
 	}
 	@Override
 	public void render(Graphics g) {
-		//drawimage takes in an int thus need to tpe cast
+		//drawimage takes in an int thus need to type cast
 		g.drawImage(getCurrentAnimationFrame(), (int)x, (int)y, null);
+		
+		//check collision box around player
+		//remove this code after finishing collision
+		g.setColor(Color.red);
+		g.fillRect((int)(x + bounds.x),(int)(y+bounds.y),
+				bounds.width,bounds.height);
 	}
 
 	private BufferedImage getCurrentAnimationFrame() {

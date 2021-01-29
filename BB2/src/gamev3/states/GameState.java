@@ -51,7 +51,6 @@ public class GameState extends State{
 		}
 	}
 
-	
 	@Override
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub	
@@ -64,6 +63,5 @@ public class GameState extends State{
 		}
 		
 	}
-
 	
 }

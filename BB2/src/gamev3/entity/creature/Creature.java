@@ -24,8 +24,35 @@ public abstract class Creature extends Entity{
 	}
 	
 	public void move() {
-		x += xMove;
+		moveX();
+
 	}
+	/*
+	protected boolean collistionWithEntity(int x, int y) {
+		
+	}*/
+	
+	public void moveX() {
+		//if upper right collision box reaches right limit of display box, 
+		//do not change x coordinate, thus not allowed to move
+		//we add bounds.width because we are checking the upper right pixel of
+		// the collision box
+		if(xMove > 0) {	//moving right
+			int temp_x= (int)(x + xMove + bounds.x + bounds.width);
+			if(temp_x < 1024) {
+				x += xMove;
+			}
+		}
+		//now we do the same for the left side, we did not add bounds.width
+		//because we are checking for the upper left pixel of the collision box
+		else if(xMove < 0) {	//moving left
+			int temp_x= (int)(x + xMove + bounds.x );
+			if(temp_x > 0) {
+				x += xMove;
+			}
+		}
+	}
+	
 	//getters and setters
 	public float getxMove() {
 		return xMove;
