@@ -1,6 +1,4 @@
 package gamev3;
-
-import gamev3.display.WindowDisplay;
 public class GameLauncher {
 
 	//this launcher class is responsible for starting up our game. 
