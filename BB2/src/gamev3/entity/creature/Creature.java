@@ -26,7 +26,6 @@ public abstract class Creature extends Entity{
 	
 	public void move() {
 		moveX();
-
 	}
 	
 	public void moveX() {

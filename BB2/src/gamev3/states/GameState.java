@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 import gamev3.Handler;
+import gamev3.entity.EntityManager;
 import gamev3.entity.creature.Background;
 import gamev3.entity.creature.Big_rock;
 import gamev3.entity.creature.Fire_rock;
@@ -19,8 +20,10 @@ public class GameState extends State{
 	private Player player;
 	private Player player2;
 	private Background background;
+	//private EntityManager entityManager;
 	//private Rocks rock;
 	//lets try to experiment with arraylist for rock spawner
+	
 	final private int NUM_ROCK = 7;	//total rock on screen at one time
 	private ArrayList<Rocks> smallRockSpawner = new ArrayList<Rocks>();
 	private ArrayList<Rocks> mediumRockSpawner = new ArrayList<Rocks>();
@@ -36,6 +39,7 @@ public class GameState extends State{
 		player = new Player(handler, 256, 410, 1);
 		player2 = new Player(handler, 768, 410, 2);
 		//rock = new Rocks(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0);
+		//entityManager = new EntityManager(handler);
 		
 		for (int i = 0; i < NUM_ROCK; i++) {
 			smallRockSpawner.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
@@ -61,7 +65,9 @@ public class GameState extends State{
 		// TODO Auto-generated method stub
 		player.tick();
 		player2.tick();
+		//entityManager.tick();
 		//rock.tick();
+		
 		for (int i = 0; i < smallRockSpawner.size(); i++) {
 			smallRockSpawner.get(i).tick();
 			if (smallRockSpawner.get(i).isOffScreen()){
@@ -97,15 +103,18 @@ public class GameState extends State{
 				fireRockSpawner.get(i).tick();
 			} 
 		}
+
 	}
 
 	@Override
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub	
+		
 		background.render(g);
-		//rock.render(g);
+		//entityManager.render(g);
 		player.render(g);
 		player2.render(g);
+		
 		for (int i = 0; i < smallRockSpawner.size(); i++) {
 			smallRockSpawner.get(i).render(g);
 		}
@@ -123,8 +132,8 @@ public class GameState extends State{
 		}
 	}
 	
-	public void rockTick(ArrayList<Rocks> list) {
-
+	public void checkHit() {
+		
 	}
 	
 }

@@ -1,5 +1,6 @@
 package gamev3;
 
+import gamev3.entity.EntityManager;
 import gamev3.input.KeyManager;
 
 //allows us to pass objects to handle variables.
@@ -28,5 +29,6 @@ public class Handler {
 	public void setGame(GameMain game) {
 		this.game = game;
 	}
+	
 	
 }

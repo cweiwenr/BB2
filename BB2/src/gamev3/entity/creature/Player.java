@@ -46,6 +46,9 @@ public class Player extends Creature{
 		//update any variables for the object
 		getInput();
 		move();
+		
+		//to check life depletion
+		System.out.println(getLife());
 
 	}
 	//managing and handling what input does
