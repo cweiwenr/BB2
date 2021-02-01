@@ -24,7 +24,7 @@ public class GameState extends State{
 	//private Rocks rock;
 	//lets try to experiment with arraylist for rock spawner
 	
-	final private int NUM_ROCK = 7;	//total rock on screen at one time
+	final private int NUM_ROCK = 1;	//total rock on screen at one time
 	private ArrayList<Rocks> smallRockSpawner = new ArrayList<Rocks>();
 	private ArrayList<Rocks> mediumRockSpawner = new ArrayList<Rocks>();
 	private ArrayList<Rocks> bigRockSpawner = new ArrayList<Rocks>();
@@ -103,7 +103,7 @@ public class GameState extends State{
 				fireRockSpawner.get(i).tick();
 			} 
 		}
-
+		checkHit();
 	}
 
 	@Override
@@ -130,10 +130,28 @@ public class GameState extends State{
 		for (int i = 0; i < fireRockSpawner.size(); i++) {
 			fireRockSpawner.get(i).render(g);
 		}
+		
 	}
 	
 	public void checkHit() {
-		
+	//use this function to call player's rectangle and rock's rectangle.
+		//check if the lower x of the rock's rectangle is equal to the top of player's height
+		//if so, then minus health by 1
+		//else if player left bound == rock right bound
+		//minus 1
+		//else if player right bound == rock left bound
+		//minus 1
+		//this ensures that if rock touches players top left or right, the health will minus 1.
+		for (int i = 0; i < smallRockSpawner.size(); i++) {
+			int topLeftx = smallRockSpawner.get(i).getRectx();
+			int topLefty = smallRockSpawner.get(i).getRecty();
+			int topRightx = topLeftx + smallRockSpawner.get(i).getRectrightx();
+			int hitheight = topLefty + smallRockSpawner.get(i).getRectHeight();
+			
+			System.out.println(topLefty);
+			
+			
+		}
 	}
 	
 }

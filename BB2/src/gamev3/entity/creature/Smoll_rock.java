@@ -37,5 +37,5 @@ public class Smoll_rock extends Rocks{
 			bounds.width,bounds.height);
 	}
 	
-	
+
 }
