@@ -145,7 +145,7 @@ public class GameState extends State{
 				list.remove(i);
 				list.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
 				list.get(i).tick();
-				player.setLife(player.getLife()-1);
+				player.setLife(player.getLife()-list.get(i).getDamage());
 				System.out.println(player.getLife());
 				System.out.println("HIT");
 			}

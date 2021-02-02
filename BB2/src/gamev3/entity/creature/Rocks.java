@@ -53,6 +53,9 @@ public abstract class Rocks extends Entity{
 		return (new Rectangle((int)(x + bounds.x),(int)(y+bounds.y),
 			bounds.width,bounds.height));
 	}
+	public float getDamage() {
+		return (float)damage;
+	}
 	public abstract void tick();
 	
 	public abstract void render(Graphics g);
