@@ -1,6 +1,7 @@
 package gamev3.entity.creature;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 import gamev3.Handler;
 import gamev3.entity.Entity;
@@ -39,16 +40,19 @@ public abstract class Rocks extends Entity{
 	}
 	
 	public int getRectrightx() {
-		return bounds.width;
+		return (int)(x+bounds.x+bounds.width);
 	}
 	
 	public int getRectHeight() {
-		return bounds.height;
+		return (int)(y+bounds.y+bounds.height);
 	}
 	public int getRecty() {
 		return (int)(y+bounds.y);
 	}
-	
+	public Rectangle bound() {
+		return (new Rectangle((int)(x + bounds.x),(int)(y+bounds.y),
+			bounds.width,bounds.height));
+	}
 	public abstract void tick();
 	
 	public abstract void render(Graphics g);

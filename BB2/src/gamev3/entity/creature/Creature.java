@@ -1,6 +1,7 @@
 package gamev3.entity.creature;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 import gamev3.Handler;
 import gamev3.entity.Entity;
@@ -84,6 +85,22 @@ public abstract class Creature extends Entity{
 		this.speed = speed;
 	}
 	
+	public int getHitx() {
+		return (int)(x+bounds.x);
+	}
+	public int getHity() {
+		return (int)(y+bounds.y);
+	}
+	public int getHitWidth() {
+		return (int)(x+bounds.x+bounds.width);
+	}
+	public int getHitHeight() {
+		return (int)(y+bounds.y+bounds.height);
+	}
+	public Rectangle bound() {
+		return (new Rectangle((int)(x + bounds.x),(int)(y+bounds.y),
+				bounds.width,bounds.height));
+	}
 	public abstract void tick();
 	
 	public abstract void render(Graphics g);

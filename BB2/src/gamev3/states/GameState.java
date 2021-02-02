@@ -103,7 +103,8 @@ public class GameState extends State{
 				fireRockSpawner.get(i).tick();
 			} 
 		}
-		checkHit();
+		checkHit(player);
+		checkHit(player2);
 	}
 
 	@Override
@@ -132,8 +133,117 @@ public class GameState extends State{
 		}
 		
 	}
-	
-	public void checkHit() {
+	public void checking(ArrayList<Rocks> list,Player player) {
+		/*
+		int playerX = player.getHitx();
+		int playerRightX = player.getHitWidth();
+		int playerY = player.getHity();
+		int playerBtmY = player.getHitHeight();
+		*/
+		for (int i = 0; i < list.size(); i++) {
+			if (player.bound().intersects(list.get(i).bound())) {
+				list.remove(i);
+				list.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+				list.get(i).tick();
+				System.out.println("HIT");
+			}
+		}
+			/*
+			int leftx = list.get(i).getRectx();
+			int topy = list.get(i).getRecty();
+			int rightx = list.get(i).getRectrightx();
+			int btmy = list.get(i).getRectHeight();
+			
+			//if player's top and rock's btm on the same level
+			if (playerY == btmy){
+				//check if player's left/right x in between rocks x's
+				//if players left is bigger then rock's left and 
+				//player left x smaller then rock's right
+				//means rock has hit player
+				if (playerX > leftx && playerX < rightx) {
+					//once hit, remove rock and reinsert
+					System.out.println("HIT");
+					list.remove(i);
+					list.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					list.get(i).tick();
+					return;
+					
+				}else if (playerRightX > leftx && playerRightX < rightx) {
+					System.out.println("HIT");
+					list.remove(i);
+					list.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					list.get(i).tick();
+					return;
+				}
+			}else if (playerX == rightx){
+				//this means that player's left is inline with rock's right
+				//check if the y value hits
+				if (playerY > topy && playerY < btmy) {
+					//means player got hit, top left corner between rocks
+					System.out.println("HIT");
+					list.remove(i);
+					list.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					list.get(i).tick();
+					return;
+				}else if (playerBtmY > topy && playerBtmY < btmy) {
+					//means player got hit
+					System.out.println("HIT");
+					list.remove(i);
+					list.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					list.get(i).tick();
+					return;
+				}else if(topy > playerY && topy < playerBtmY) {
+					System.out.println("HIT");
+					list.remove(i);
+					list.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					list.get(i).tick();
+					return;
+				}else if(btmy > playerY && btmy < playerBtmY) {
+					System.out.println("HIT");
+					list.remove(i);
+					list.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					list.get(i).tick();
+					return;
+				}
+			}else if (playerRightX == leftx) {
+				//player's right has hit rock's left
+				if (playerY > topy && playerY < btmy) {
+					//means player got hit, top left corner between rocks
+					System.out.println("HIT");
+					list.remove(i);
+					list.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					list.get(i).tick();
+					return;
+				}else if (playerBtmY > topy && playerBtmY < btmy) {
+					//means player got hit
+					System.out.println("HIT");
+					list.remove(i);
+					list.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					list.get(i).tick();
+					return;
+				}else if(topy > playerY && topy < playerBtmY) {
+					System.out.println("HIT");
+					list.remove(i);
+					list.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					list.get(i).tick();
+					return;
+				}else if(btmy > playerY && btmy < playerBtmY) {
+					System.out.println("HIT");
+					list.remove(i);
+					list.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					list.get(i).tick();
+					return;
+				}
+			}
+		}*/
+	}
+	public void checkHit(Player player) {
+		checking(smallRockSpawner, player);
+		checking(mediumRockSpawner, player);
+		checking(bigRockSpawner, player);
+		checking(smallRockSpawner, player);
+		checking(fireRockSpawner, player);
+		
 	//use this function to call player's rectangle and rock's rectangle.
 		//check if the lower x of the rock's rectangle is equal to the top of player's height
 		//if so, then minus health by 1
@@ -142,16 +252,89 @@ public class GameState extends State{
 		//else if player right bound == rock left bound
 		//minus 1
 		//this ensures that if rock touches players top left or right, the health will minus 1.
+		/*int playerX = player.getHitx();
+		int playerRightX = playerX + player.getHitWidth();
+		int playerY = player.getHity();
+		int playerBtmY = playerY + player.getHitHeight();
+		
 		for (int i = 0; i < smallRockSpawner.size(); i++) {
-			int topLeftx = smallRockSpawner.get(i).getRectx();
-			int topLefty = smallRockSpawner.get(i).getRecty();
-			int topRightx = topLeftx + smallRockSpawner.get(i).getRectrightx();
-			int hitheight = topLefty + smallRockSpawner.get(i).getRectHeight();
+			int leftx = smallRockSpawner.get(i).getRectx();
+			int topy = smallRockSpawner.get(i).getRecty();
+			int rightx = leftx + smallRockSpawner.get(i).getRectrightx();
+			int btmy = topy + smallRockSpawner.get(i).getRectHeight();
 			
-			System.out.println(topLefty);
-			
-			
-		}
+			//if player's top and rock's btm on the same level
+			if (playerY == btmy){
+				//check if player's left/right x in between rocks x's
+				//if players left is bigger then rock's left and 
+				//player left x smaller then rock's right
+				//means rock has hit player
+				if (playerX > leftx && playerX < rightx) {
+					//once hit, remove rock and reinsert
+					System.out.println("HIT");
+					smallRockSpawner.remove(i);
+					smallRockSpawner.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					smallRockSpawner.get(i).tick();
+					
+				}else if (playerRightX > leftx && playerRightX < rightx) {
+					System.out.println("HIT");
+					smallRockSpawner.remove(i);
+					smallRockSpawner.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					smallRockSpawner.get(i).tick();
+				}
+			}else if (playerX == rightx){
+				//this means that player's left is inline with rock's right
+				//check if the y value hits
+				if (playerY > topy && playerY < btmy) {
+					//means player got hit, top left corner between rocks
+					System.out.println("HIT");
+					smallRockSpawner.remove(i);
+					smallRockSpawner.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					smallRockSpawner.get(i).tick();
+				}else if (playerBtmY > topy && playerBtmY < btmy) {
+					//means player got hit
+					System.out.println("HIT");
+					smallRockSpawner.remove(i);
+					smallRockSpawner.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					smallRockSpawner.get(i).tick();
+				}else if(topy > playerY && topy < playerBtmY) {
+					System.out.println("HIT");
+					smallRockSpawner.remove(i);
+					smallRockSpawner.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					smallRockSpawner.get(i).tick();
+				}else if(btmy > playerY && btmy < playerBtmY) {
+					System.out.println("HIT");
+					smallRockSpawner.remove(i);
+					smallRockSpawner.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					smallRockSpawner.get(i).tick();
+				}
+			}else if (playerRightX == leftx) {
+				//player's right has hit rock's left
+				if (playerY > topy && playerY < btmy) {
+					//means player got hit, top left corner between rocks
+					System.out.println("HIT");
+					smallRockSpawner.remove(i);
+					smallRockSpawner.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					smallRockSpawner.get(i).tick();
+				}else if (playerBtmY > topy && playerBtmY < btmy) {
+					//means player got hit
+					System.out.println("HIT");
+					smallRockSpawner.remove(i);
+					smallRockSpawner.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					smallRockSpawner.get(i).tick();
+				}else if(topy > playerY && topy < playerBtmY) {
+					System.out.println("HIT");
+					smallRockSpawner.remove(i);
+					smallRockSpawner.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					smallRockSpawner.get(i).tick();
+				}else if(btmy > playerY && btmy < playerBtmY) {
+					System.out.println("HIT");
+					smallRockSpawner.remove(i);
+					smallRockSpawner.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+					smallRockSpawner.get(i).tick();
+				}
+			}
+		}*/
 	}
 	
 }
