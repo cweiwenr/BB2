@@ -69,9 +69,9 @@ public class Player extends Creature{
 		//drawimage takes in an int thus need to type cast
 		g.drawImage(getCurrentAnimationFrame(), (int)x, (int)y, null);
 		if (this.id == 1) {
-			g.drawString(("Player 1 health: "+Float.toString(this.life)), 10, 10);
+			g.drawString(("Player 1 health: "+Float.toString(this.life)), 15, 15);
 		}else {
-			g.drawString(("Player 2 health: "+Float.toString(this.life)), 10, 20);
+			g.drawString(("Player 2 health: "+Float.toString(this.life)), 15, 30);
 		}
 		
 		//check collision box around player
