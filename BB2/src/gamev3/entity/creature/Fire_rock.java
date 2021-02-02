@@ -31,9 +31,9 @@ public class Fire_rock extends Rocks{
 	public void render(Graphics g) {
 		//render out graphics for each rock with random sizes
 		g.drawImage(Assets.fireRocks, (int)x,(int)y,rock_size,rock_size,null);
-		
+		/*
 		g.setColor(Color.RED);
 		g.fillRect((int)(x + bounds.x),(int)(y+bounds.y),
-				bounds.width,bounds.height);
+				bounds.width,bounds.height);*/
 	}
 }

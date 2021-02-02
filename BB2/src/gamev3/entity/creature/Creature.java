@@ -73,7 +73,7 @@ public abstract class Creature extends Entity{
 		return life;
 	}
 
-	public void setLife(int life) {
+	public void setLife(float life) {
 		this.life = life;
 	}
 
@@ -84,7 +84,7 @@ public abstract class Creature extends Entity{
 	public void setSpeed(float speed) {
 		this.speed = speed;
 	}
-	
+	/*
 	public int getHitx() {
 		return (int)(x+bounds.x);
 	}
@@ -96,7 +96,7 @@ public abstract class Creature extends Entity{
 	}
 	public int getHitHeight() {
 		return (int)(y+bounds.y+bounds.height);
-	}
+	}*/
 	public Rectangle bound() {
 		return (new Rectangle((int)(x + bounds.x),(int)(y+bounds.y),
 				bounds.width,bounds.height));

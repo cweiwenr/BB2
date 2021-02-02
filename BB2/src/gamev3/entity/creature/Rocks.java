@@ -34,7 +34,7 @@ public abstract class Rocks extends Entity{
 	public int getSize() {
 		return rock_size;
 	}
-	
+	/*
 	public int getRectx() {
 		return (int)(x+bounds.x);
 	}
@@ -48,7 +48,7 @@ public abstract class Rocks extends Entity{
 	}
 	public int getRecty() {
 		return (int)(y+bounds.y);
-	}
+	}*/
 	public Rectangle bound() {
 		return (new Rectangle((int)(x + bounds.x),(int)(y+bounds.y),
 			bounds.width,bounds.height));

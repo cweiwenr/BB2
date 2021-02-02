@@ -71,9 +71,10 @@ public class Player extends Creature{
 		
 		//check collision box around player
 		//remove this code after finishing collision
+		/*
 		g.setColor(Color.red);
 		g.fillRect((int)(x + bounds.x),(int)(y+bounds.y),
-				bounds.width,bounds.height);
+				bounds.width,bounds.height);*/
 	}
 
 	private BufferedImage getCurrentAnimationFrame() {
