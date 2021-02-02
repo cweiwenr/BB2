@@ -68,6 +68,11 @@ public class Player extends Creature{
 	public void render(Graphics g) {
 		//drawimage takes in an int thus need to type cast
 		g.drawImage(getCurrentAnimationFrame(), (int)x, (int)y, null);
+		if (this.id == 1) {
+			g.drawString(("Player 1 health: "+Float.toString(this.life)), 10, 10);
+		}else {
+			g.drawString(("Player 2 health: "+Float.toString(this.life)), 10, 20);
+		}
 		
 		//check collision box around player
 		//remove this code after finishing collision
@@ -75,6 +80,11 @@ public class Player extends Creature{
 		g.setColor(Color.red);
 		g.fillRect((int)(x + bounds.x),(int)(y+bounds.y),
 				bounds.width,bounds.height);*/
+	}
+
+	private String toString(float life) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	private BufferedImage getCurrentAnimationFrame() {
