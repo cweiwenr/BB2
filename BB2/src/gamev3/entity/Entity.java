@@ -14,7 +14,7 @@ public abstract class Entity {
 	protected int width, height;
 	//collision checker variable
 	protected Rectangle bounds;	
-	private EntityManager entityManager;
+
 	
 	public Entity (Handler handler, float x, float y, int width, int height) {
 		this.handler = handler;

@@ -2,9 +2,7 @@ package gamev3.states;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
-
 import gamev3.Handler;
-import gamev3.entity.EntityManager;
 import gamev3.entity.creature.Background;
 import gamev3.entity.creature.Big_rock;
 import gamev3.entity.creature.Fire_rock;
