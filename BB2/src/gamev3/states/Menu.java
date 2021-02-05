@@ -20,7 +20,7 @@ public class Menu extends State {
 		handler.getMouseManager().setUIManager(uiManager);
 
 		// X, Y, Width, Height, Buffer Image
-		uiManager.addObject(new UIImageButton(200, 200, 128, 64, Assets.button_start, new ClickListener() {
+		uiManager.addObject(new UIImageButton(445, 200, 128, 64, Assets.button_start, new ClickListener() {
 
 			// Just creating an instance of this click listener class on the flag?
 			@Override
