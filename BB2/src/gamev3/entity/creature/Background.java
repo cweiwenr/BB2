@@ -27,6 +27,6 @@ public class Background extends Entity{
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub
 		g.drawImage(Assets.background, 0, 0, null);
-	}
+	}//test
 
 }
