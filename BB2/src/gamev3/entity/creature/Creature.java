@@ -8,7 +8,7 @@ import gamev3.entity.Entity;
 
 public abstract class Creature extends Entity{
 
-	public static final float DEFAULT_HEALTH = 10;
+	public static final float DEFAULT_HEALTH = 0;
 	public static final float DEFAULT_SPEED = 3.0f;
 	public static final int DEFAULT_CHARACTER_WIDTH = 20,
 			DEFAULT_CHARACTER_HEIGHT = 40;
