@@ -10,7 +10,7 @@ public class medium_rock extends Rocks{
 	
 	public medium_rock(Handler handler, float x, float y) {
 		super(handler, x, y);
-		damage = 2;
+		damage = 3;
 		rock_speed = (float)(Math.random() * (2 - 2 + 1) + 2);;
 		rock_size = 60;
 		

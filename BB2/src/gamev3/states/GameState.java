@@ -144,7 +144,7 @@ public class GameState extends State{
 				list.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
 				list.get(i).tick();
 				//commented out the minus health logic, now is increase score for each rock
-				player.setLife(player.getLife()+1/*list.get(i).getDamage()*/);
+				player.setLife(player.getLife()+list.get(i).getDamage()/*list.get(i).getDamage()*/);
 				System.out.println(player.getLife());
 				System.out.println("HIT");
 			}

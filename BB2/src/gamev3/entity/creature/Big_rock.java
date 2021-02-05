@@ -10,7 +10,7 @@ public class Big_rock extends Rocks{
 	
 	public Big_rock(Handler handler, float x, float y) {
 		super(handler, x, y);
-		damage = 3;
+		damage = 2;
 		rock_speed = (float)(Math.random() * (1 - 1 + 1) + 1);;
 		rock_size = 120;
 		
