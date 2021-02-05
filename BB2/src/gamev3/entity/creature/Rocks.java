@@ -12,6 +12,7 @@ public abstract class Rocks extends Entity{
 	public final static int ROCK_HEIGHT = 10;
 	
 	protected int damage;
+	protected int rock_point;
 	protected float rock_speed;
 	protected float yMove;
 	protected int rock_size;
@@ -55,6 +56,9 @@ public abstract class Rocks extends Entity{
 	}
 	public float getDamage() {
 		return (float)damage;
+	}
+	public float getPoints() {
+		return(float)rock_point;
 	}
 	public abstract void tick();
 	

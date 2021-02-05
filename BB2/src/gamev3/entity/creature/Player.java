@@ -70,8 +70,10 @@ public class Player extends Creature{
 		g.drawImage(getCurrentAnimationFrame(), (int)x, (int)y, null);
 		if (this.id == 1) {
 			g.drawString(("Player 1 health: "+Float.toString(this.life)), 15, 15);
+			g.drawString(("Player 1 points: " + Float.toString(this.points)), 900, 15);
 		}else {
 			g.drawString(("Player 2 health: "+Float.toString(this.life)), 15, 30);
+			g.drawString(("Player 2 points: "+Float.toString(this.points)), 900, 30);
 		}
 		
 		//check collision box around player

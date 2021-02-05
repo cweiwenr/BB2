@@ -10,7 +10,8 @@ public class Smoll_rock extends Rocks{
 	
 	public Smoll_rock(Handler handler, float x, float y) {
 		super(handler, x, y);
-		damage = 4;
+		damage = 0;
+		rock_point = 5;
 		rock_speed = (float)(Math.random() * (3 - 3 + 1) + 3);
 		rock_size = 30;
 		

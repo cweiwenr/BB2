@@ -8,12 +8,14 @@ import gamev3.entity.Entity;
 
 public abstract class Creature extends Entity{
 
-	public static final float DEFAULT_HEALTH = 0;
+	public static final float DEFAULT_HEALTH = 10;
+	public static final float DEFAULT_POINTS = 0;
 	public static final float DEFAULT_SPEED = 3.0f;
 	public static final int DEFAULT_CHARACTER_WIDTH = 20,
 			DEFAULT_CHARACTER_HEIGHT = 40;
 	
 	protected float life;
+	protected float points;
 	protected float speed;
 	protected float xMove;
 	
@@ -21,6 +23,7 @@ public abstract class Creature extends Entity{
 		//super method leads to entity class constructor
 		super(handler, x, y, width, height);	//with this every creature/ player has a position on the screen
 		life = DEFAULT_HEALTH;
+		points = DEFAULT_POINTS;
 		speed = DEFAULT_SPEED;
 		xMove = 0;
 	}
@@ -76,7 +79,12 @@ public abstract class Creature extends Entity{
 	public void setLife(float life) {
 		this.life = life;
 	}
-
+	public float getPoints() {
+		return points;
+	}
+	public void setPoints(float points) {
+		this.points = points;
+	}
 	public float getSpeed() {
 		return speed;
 	}
