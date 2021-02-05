@@ -6,6 +6,7 @@ import java.awt.image.BufferStrategy;
 import gamev3.display.WindowDisplay;
 import gamev3.gfx.Assets;
 import gamev3.input.KeyManager;
+import gamev3.input.MouseManager;
 import gamev3.states.GameState;
 import gamev3.states.Menu;
 import gamev3.states.State;
@@ -32,19 +33,21 @@ public class GameMain implements Runnable{
 	private Graphics g;
 	
 	//States, we declare every state we have here, so menu etc.
-	private State gameState;
-	private State menu;
+	public State gameState;
+	public State menu;
 
 	//declaring variables to listen for key inputs
 	private KeyManager keyManager;
+	private MouseManager mouseManager;
 	
 	private Handler handler;
 	
-	public GameMain(String title, int width, int height) {
+	public GameMain(String title, int width, int height) {  // This thing is the display, not yet initialise (FM)
 		this.width = width;
 		this.height = height;
 		this.title = title;
 		keyManager = new KeyManager();
+		mouseManager = new MouseManager();
 	}
 	
 	private void init() {
@@ -53,6 +56,10 @@ public class GameMain implements Runnable{
 		display = new WindowDisplay(title, width, height);
 		//this adds key listeners so that we can listen for inputs, allowing us to access the keyboard
 		display.getFrame().addKeyListener(keyManager);
+		display.getFrame().addMouseListener(mouseManager);
+		display.getFrame().addMouseMotionListener(mouseManager);
+		display.getCanvas().addMouseListener(mouseManager);
+		display.getCanvas().addMouseMotionListener(mouseManager);
 		Assets.init();	//have to call this init so that all the resources gets 'loaded'
 				
 		handler = new Handler(this);
@@ -60,7 +67,7 @@ public class GameMain implements Runnable{
 		//initialize your game states here, we want them to init when we init this game main
 		gameState = new GameState(handler);
 		menu = new Menu(handler);
-		State.setState(gameState);
+		State.setState(menu); //Prev was gameState
 	}
 
 	private void tick() {
@@ -113,12 +120,12 @@ public class GameMain implements Runnable{
 		while(running) {
 			
 			now = System.nanoTime();
-			delta += (now - lastTime) / timePerTick;
-			timer += now - lastTime;
+			delta += (now - lastTime) / timePerTick; // tell the computer when to call the tick and render method
+			timer += now - lastTime; 
 			lastTime = now;
 			
 			//condition to know when to run tick and render method
-			if (delta >= 1) {
+			if (delta >= 1) { /// if delta += 1, then we need to call the tick and render in order to achieve 60 fps 
 				tick();
 				render();
 				ticks++;
@@ -137,6 +144,10 @@ public class GameMain implements Runnable{
 	
 	public KeyManager getKeyManager() {
 		return keyManager;
+	}
+	
+	public MouseManager getMouseManager() {
+		return mouseManager;
 	}
 	
 	public int getWidth() {

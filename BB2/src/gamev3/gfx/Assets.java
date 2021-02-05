@@ -10,12 +10,20 @@ public class Assets {
 	//all the image variables
 	public static BufferedImage player, player2, background, rocks;
 	public static BufferedImage[] player_right, player_left, player_still;
+	public static BufferedImage[] button_start;
 	
 	//this init function is so that the game loads in everything once, instead of having
 	//this in the GameMain loops as it is very inefficient
 	public static void init() {
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/stickman-anim.png"));
 		SpriteSheet rock = new SpriteSheet(ImageLoader.loadImage("/textures/rocks.png"));
+		SpriteSheet start_button_icon = new SpriteSheet(ImageLoader.loadImage("/textures/start_button.png"));
+		
+		//trying to add button
+		button_start = new BufferedImage[2];
+		button_start[0] = sheet.crop(0, 40, width, height);
+		button_start[1] = sheet.crop(20, 40, width, height);
+		
 		
 		//animation sprite
 		player_right = new BufferedImage[8];
@@ -52,6 +60,7 @@ public class Assets {
 		//player2 = sheet.crop(width,  3*height, width, height);
 		background = ImageLoader.loadImage("/textures/background1.png");
 		rocks = rock.crop(128, 0, 128, 128);
+		
 		
 	}
 }

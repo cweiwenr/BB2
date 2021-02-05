@@ -1,6 +1,7 @@
 package gamev3;
 
 import gamev3.input.KeyManager;
+import gamev3.input.MouseManager;
 
 //allows us to pass objects to handle variables.
 public class Handler {
@@ -14,6 +15,10 @@ public class Handler {
 	public KeyManager getKeyManager() {
 		return game.getKeyManager();
 	}
+	public MouseManager getMouseManager() {
+		return game.getMouseManager();
+	}
+	
 	public int getWidth() {
 		return game.getWidth();
 	}
