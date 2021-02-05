@@ -46,6 +46,9 @@ public class Player extends Creature{
 		//update any variables for the object
 		getInput();
 		move();
+		
+		//to check life depletion
+		//System.out.println(getLife());
 
 	}
 	//managing and handling what input does
@@ -65,12 +68,23 @@ public class Player extends Creature{
 	public void render(Graphics g) {
 		//drawimage takes in an int thus need to type cast
 		g.drawImage(getCurrentAnimationFrame(), (int)x, (int)y, null);
+		if (this.id == 1) {
+			g.drawString(("Player 1 health: "+Float.toString(this.life)), 15, 15);
+		}else {
+			g.drawString(("Player 2 health: "+Float.toString(this.life)), 15, 30);
+		}
 		
 		//check collision box around player
 		//remove this code after finishing collision
+		/*
 		g.setColor(Color.red);
 		g.fillRect((int)(x + bounds.x),(int)(y+bounds.y),
-				bounds.width,bounds.height);
+				bounds.width,bounds.height);*/
+	}
+
+	private String toString(float life) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	private BufferedImage getCurrentAnimationFrame() {

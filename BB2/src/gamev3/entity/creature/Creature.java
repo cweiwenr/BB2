@@ -1,23 +1,25 @@
 package gamev3.entity.creature;
 
+import java.awt.Graphics;
+import java.awt.Rectangle;
+
 import gamev3.Handler;
 import gamev3.entity.Entity;
 
 public abstract class Creature extends Entity{
 
-	public static final int DEFAULT_HEALTH = 10;
+	public static final float DEFAULT_HEALTH = 10;
 	public static final float DEFAULT_SPEED = 3.0f;
 	public static final int DEFAULT_CHARACTER_WIDTH = 20,
 			DEFAULT_CHARACTER_HEIGHT = 40;
 	
-	protected int life;
+	protected float life;
 	protected float speed;
 	protected float xMove;
 	
 	public Creature(Handler handler, float x, float y, int width, int height) {
 		//super method leads to entity class constructor
 		super(handler, x, y, width, height);	//with this every creature/ player has a position on the screen
-		// TODO Auto-generated constructor stub
 		life = DEFAULT_HEALTH;
 		speed = DEFAULT_SPEED;
 		xMove = 0;
@@ -25,7 +27,6 @@ public abstract class Creature extends Entity{
 	
 	public void move() {
 		moveX();
-
 	}
 	
 	public void moveX() {
@@ -68,11 +69,11 @@ public abstract class Creature extends Entity{
 		this.xMove = xMove;
 	}
 
-	public int getLife() {
+	public float getLife() {
 		return life;
 	}
 
-	public void setLife(int life) {
+	public void setLife(float life) {
 		this.life = life;
 	}
 
@@ -83,5 +84,24 @@ public abstract class Creature extends Entity{
 	public void setSpeed(float speed) {
 		this.speed = speed;
 	}
-
+	/*
+	public int getHitx() {
+		return (int)(x+bounds.x);
+	}
+	public int getHity() {
+		return (int)(y+bounds.y);
+	}
+	public int getHitWidth() {
+		return (int)(x+bounds.x+bounds.width);
+	}
+	public int getHitHeight() {
+		return (int)(y+bounds.y+bounds.height);
+	}*/
+	public Rectangle bound() {
+		return (new Rectangle((int)(x + bounds.x),(int)(y+bounds.y),
+				bounds.width,bounds.height));
+	}
+	public abstract void tick();
+	
+	public abstract void render(Graphics g);
 }

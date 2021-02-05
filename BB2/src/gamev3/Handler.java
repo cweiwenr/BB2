@@ -1,5 +1,6 @@
 package gamev3;
 
+import gamev3.entity.EntityManager;
 import gamev3.input.KeyManager;
 import gamev3.input.MouseManager;
 
@@ -33,5 +34,6 @@ public class Handler {
 	public void setGame(GameMain game) {
 		this.game = game;
 	}
+	
 	
 }
