@@ -8,7 +8,7 @@ public class Assets {
 	//some dimensions to represent width and height of each stickman in the spritesheet
 	private static final int width = 20, height = 40;
 	//all the image variables
-	public static BufferedImage player, player2, background, rocks, fireRocks;
+	public static BufferedImage player, player2, background, rocks, fireRocks,iceRocks,bootRocks,heartRocks;
 	public static BufferedImage[] player_right, player_left, player_still;
 	public static BufferedImage[] button_start;
 	
@@ -26,6 +26,9 @@ public class Assets {
 		
 
 		SpriteSheet fireRock = new SpriteSheet(ImageLoader.loadImage("/textures/fire.png"));
+		SpriteSheet iceRock = new SpriteSheet(ImageLoader.loadImage("/textures/ice.png"));
+		SpriteSheet bootRock = new SpriteSheet(ImageLoader.loadImage("/textures/boot.png"));
+		SpriteSheet heartRock = new SpriteSheet(ImageLoader.loadImage("/textures/heart.png"));
 		
 		//animation sprite
 		player_right = new BufferedImage[8];
@@ -63,6 +66,9 @@ public class Assets {
 		background = ImageLoader.loadImage("/textures/background1.png");
 		rocks = rock.crop(128, 0, 128, 128);
 		fireRocks = fireRock.crop(0,  0, 128,  128);
+		iceRocks = iceRock.crop(0,  0, 128,  128);
+		bootRocks = bootRock.crop(0,  0, 128,  128);
+		heartRocks = heartRock.crop(0,  0, 128,  128);
 		
 		
 	}

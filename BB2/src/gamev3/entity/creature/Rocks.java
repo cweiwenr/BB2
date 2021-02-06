@@ -16,6 +16,7 @@ public abstract class Rocks extends Entity{
 	protected float rock_speed;
 	protected float yMove;
 	protected int rock_size;
+	protected int effect;
 	
 	public Rocks(Handler handler, float x, float y) {
 		super(handler, x, y, ROCK_WIDTH, ROCK_HEIGHT);
@@ -59,6 +60,9 @@ public abstract class Rocks extends Entity{
 	}
 	public float getPoints() {
 		return(float)rock_point;
+	}
+	public int getEffect() {
+		return effect;
 	}
 	public abstract void tick();
 	

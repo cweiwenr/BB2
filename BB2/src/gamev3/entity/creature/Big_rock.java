@@ -14,6 +14,7 @@ public class Big_rock extends Rocks{
 		rock_point = 1;
 		rock_speed = (float)(Math.random() * (1 - 1 + 1) + 1);;
 		rock_size = 120;
+		effect = 1;
 		
 		bounds.x = 13;
 		bounds.y = 15;

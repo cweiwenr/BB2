@@ -14,6 +14,7 @@ public class Fire_rock extends Rocks{
 		rock_point = 0;
 		rock_speed = (float)(Math.random() * (5 - 3 + 1) + 3);;
 		rock_size = 50;
+		effect = 1;
 		
 		bounds.x = 10;
 		bounds.y = 12;

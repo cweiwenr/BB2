@@ -14,6 +14,7 @@ public class medium_rock extends Rocks{
 		rock_point = 3;
 		rock_speed = (float)(Math.random() * (2 - 2 + 1) + 2);;
 		rock_size = 60;
+		effect = 1;
 		
 		bounds.x = 10;
 		bounds.y = 12;

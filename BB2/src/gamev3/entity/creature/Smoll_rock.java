@@ -14,6 +14,7 @@ public class Smoll_rock extends Rocks{
 		rock_point = 5;
 		rock_speed = (float)(Math.random() * (3 - 3 + 1) + 3);
 		rock_size = 30;
+		effect = 1;
 		
 		bounds.x = 5;
 		bounds.y = 7;

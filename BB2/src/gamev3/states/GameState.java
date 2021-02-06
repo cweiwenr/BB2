@@ -10,6 +10,10 @@ import gamev3.entity.creature.Player;
 import gamev3.entity.creature.Rocks;
 import gamev3.entity.creature.Smoll_rock;
 import gamev3.entity.creature.medium_rock;
+import gamev3.entity.creature.ice_rock;
+import gamev3.entity.creature.boot_rock;
+import gamev3.entity.creature.heart_rock;
+
 
 
 //this is where the actual game is gg to be played at
@@ -27,7 +31,9 @@ public class GameState extends State{
 	private ArrayList<Rocks> mediumRockSpawner = new ArrayList<Rocks>();
 	private ArrayList<Rocks> bigRockSpawner = new ArrayList<Rocks>();
 	private ArrayList<Rocks> fireRockSpawner = new ArrayList<Rocks>();
-	
+	private ArrayList<Rocks> iceRockSpawner = new ArrayList<Rocks>();
+	private ArrayList<Rocks> bootRockSpawner = new ArrayList<Rocks>();
+	private ArrayList<Rocks> heartRockSpawner = new ArrayList<Rocks>();
 	
 
 	public GameState(Handler handler) {
@@ -53,6 +59,18 @@ public class GameState extends State{
 		
 		for (int i = 0; i < NUM_ROCK; i++) {
 			fireRockSpawner.add(new Fire_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+		}
+		
+		for (int i = 0; i < NUM_ROCK; i++) {
+			iceRockSpawner.add(new ice_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+		}
+		
+		for (int i = 0; i < 2; i++) {
+			bootRockSpawner.add(new boot_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+		}
+		
+		for (int i = 0; i < 2; i++) {
+			heartRockSpawner.add(new heart_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
 		}
 	
 		
@@ -101,6 +119,31 @@ public class GameState extends State{
 				fireRockSpawner.get(i).tick();
 			} 
 		}
+		
+		for (int i = 0; i < iceRockSpawner.size(); i++) {
+			iceRockSpawner.get(i).tick();
+			if (iceRockSpawner.get(i).isOffScreen()){
+				iceRockSpawner.remove(i);
+				iceRockSpawner.add(new ice_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+				iceRockSpawner.get(i).tick();
+			} 
+		}
+		for (int i = 0; i < 2; i++) {
+			bootRockSpawner.get(i).tick();
+			if (bootRockSpawner.get(i).isOffScreen()){
+				bootRockSpawner.remove(i);
+				bootRockSpawner.add(new boot_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+				bootRockSpawner.get(i).tick();
+			} 
+		}
+		for (int i = 0; i < 2; i++) {
+			heartRockSpawner.get(i).tick();
+			if (heartRockSpawner.get(i).isOffScreen()){
+				heartRockSpawner.remove(i);
+				heartRockSpawner.add(new heart_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+				heartRockSpawner.get(i).tick();
+			} 
+		}
 		checkHit(player);
 		checkHit(player2);
 	}
@@ -130,7 +173,20 @@ public class GameState extends State{
 			fireRockSpawner.get(i).render(g);
 		}
 		
+		for (int i = 0; i < iceRockSpawner.size(); i++) {
+			iceRockSpawner.get(i).render(g);
+		}
+		
+		for (int i = 0; i < bootRockSpawner.size(); i++) {
+			bootRockSpawner.get(i).render(g);
+		}
+		
+		for (int i = 0; i < heartRockSpawner.size(); i++) {
+			heartRockSpawner.get(i).render(g);
+		}
+		
 	}
+
 	public void checking(ArrayList<Rocks> list,Player player) {
 		/*
 		int playerX = player.getHitx();
@@ -144,12 +200,37 @@ public class GameState extends State{
 				list.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
 				list.get(i).tick();
 				//commented out the minus health logic, now is increase score for each rock
+				try {
+					if(list.get(i).getEffect()==0) {
+						//System.out.println("got forzen");
+						while(player.getSpeed()>1) {
+							player.setSpeed((float)(player.getSpeed()*0.75));
+						}
+					}
+					else if(list.get(i).getEffect()==2) {
+						//System.out.println("got boot");
+						while(player.getSpeed()<7) {
+							player.setSpeed((float)(player.getSpeed()*1.5));
+						}
+					}
+					else if(list.get(i).getEffect()==3) {
+						//System.out.println("got boot");
+						while(player.getLife()<50) {
+							player.setLife((float)(player.getLife()+10));
+						}
+					}
+
+				}
+				catch(Exception e) {
+					System.out.println("Effect Error");
+				}
 				player.setLife(player.getLife()-list.get(i).getDamage());
 				player.setPoints(player.getPoints()+list.get(i).getPoints());
-				System.out.println(player.getLife());
-				System.out.println("HIT");
+				//System.out.println(player.getLife());
+				//System.out.println("HIT");
 			}
 		}
+
 			/*
 			int leftx = list.get(i).getRectx();
 			int topy = list.get(i).getRecty();
@@ -245,6 +326,10 @@ public class GameState extends State{
 		checking(bigRockSpawner, player);
 		checking(smallRockSpawner, player);
 		checking(fireRockSpawner, player);
+		checking(bootRockSpawner, player);
+		checking(iceRockSpawner, player);
+		checking(heartRockSpawner, player);
+
 		
 	//use this function to call player's rectangle and rock's rectangle.
 		//check if the lower x of the rock's rectangle is equal to the top of player's height
