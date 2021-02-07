@@ -9,13 +9,14 @@ public class Assets {
 	private static final int width = 20, height = 40;
 	//all the image variables
 	public static BufferedImage player, player2, background, rocks, fireRocks,iceRocks,bootRocks,heartRocks;
-	public static BufferedImage[] player_right, player_left, player_still;
+	public static BufferedImage[] player_right, player_left, player_still,player2_left,player2_right,player2_still;
 	public static BufferedImage[] button_start;
 	
 	//this init function is so that the game loads in everything once, instead of having
 	//this in the GameMain loops as it is very inefficient
 	public static void init() {
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/stickman-anim.png"));
+		SpriteSheet sheet2 = new SpriteSheet(ImageLoader.loadImage("/textures/player2.png"));
 		SpriteSheet rock = new SpriteSheet(ImageLoader.loadImage("/textures/rocks.png"));
 		SpriteSheet start_button_icon = new SpriteSheet(ImageLoader.loadImage("/textures/start_button.png"));
 		
@@ -29,6 +30,37 @@ public class Assets {
 		SpriteSheet iceRock = new SpriteSheet(ImageLoader.loadImage("/textures/ice.png"));
 		SpriteSheet bootRock = new SpriteSheet(ImageLoader.loadImage("/textures/boot.png"));
 		SpriteSheet heartRock = new SpriteSheet(ImageLoader.loadImage("/textures/heart.png"));
+		
+		//animation sprite
+		player2_right = new BufferedImage[8];
+		player2_right[0] = sheet2.crop(0, 40, width, height);
+		player2_right[1] = sheet2.crop(20, 40, width, height);
+		player2_right[2] = sheet2.crop(40, 40, width, height);
+		player2_right[3] = sheet2.crop(60, 40, width, height);
+		player2_right[4] = sheet2.crop(80, 40, width, height);
+		player2_right[5] = sheet2.crop(100, 40, width, height);
+		player2_right[6] = sheet2.crop(120, 40, width, height);
+		player2_right[7] = sheet2.crop(140, 40, width, height);
+		
+		player2_left = new BufferedImage[8];
+		player2_left[0] = sheet2.crop(0, 0, width, height);
+		player2_left[1] = sheet2.crop(20, 0, width, height);
+		player2_left[2] = sheet2.crop(40, 0, width, height);
+		player2_left[3] = sheet2.crop(60, 0, width, height);
+		player2_left[4] = sheet2.crop(80, 0, width, height);
+		player2_left[5] = sheet2.crop(100, 0, width, height);
+		player2_left[6] = sheet2.crop(120, 0, width, height);
+		player2_left[7] = sheet2.crop(140, 0, width, height);
+
+		player2_still = new BufferedImage[8];
+		player2_still[0] = sheet2.crop(0, 120, width, height);
+		player2_still[1] = sheet2.crop(20, 120, width, height);
+		player2_still[2] = sheet2.crop(40, 120, width, height);
+		player2_still[3] = sheet2.crop(60, 120, width, height);
+		player2_still[4] = sheet2.crop(80, 120, width, height);
+		player2_still[5] = sheet2.crop(100, 120, width, height);
+		player2_still[6] = sheet2.crop(120, 120, width, height);
+		player2_still[7] = sheet2.crop(140, 120, width, height);
 		
 		//animation sprite
 		player_right = new BufferedImage[8];

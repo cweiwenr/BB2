@@ -46,31 +46,31 @@ public class GameState extends State{
 		//entityManager = new EntityManager(handler);
 		
 		for (int i = 0; i < NUM_ROCK; i++) {
-			smallRockSpawner.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+			smallRockSpawner.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),45));
 		}
 		
 		for (int i = 0; i < NUM_ROCK; i++) {
-			mediumRockSpawner.add(new medium_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+			mediumRockSpawner.add(new medium_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),45));
 		}
 		
 		for (int i = 0; i < NUM_ROCK; i++) {
-			bigRockSpawner.add(new medium_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+			bigRockSpawner.add(new medium_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),45));
 		}
 		
 		for (int i = 0; i < NUM_ROCK; i++) {
-			fireRockSpawner.add(new Fire_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+			fireRockSpawner.add(new Fire_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),45));
 		}
 		
 		for (int i = 0; i < NUM_ROCK; i++) {
-			iceRockSpawner.add(new ice_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+			iceRockSpawner.add(new ice_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),45));
 		}
 		
 		for (int i = 0; i < 2; i++) {
-			bootRockSpawner.add(new boot_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+			bootRockSpawner.add(new boot_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),45));
 		}
 		
 		for (int i = 0; i < 2; i++) {
-			heartRockSpawner.add(new heart_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+			heartRockSpawner.add(new heart_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),45));
 		}
 	
 		
@@ -88,7 +88,7 @@ public class GameState extends State{
 			smallRockSpawner.get(i).tick();
 			if (smallRockSpawner.get(i).isOffScreen()){
 				smallRockSpawner.remove(i);
-				smallRockSpawner.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+				smallRockSpawner.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),45));
 				smallRockSpawner.get(i).tick();
 			} 
 		}
@@ -97,7 +97,7 @@ public class GameState extends State{
 			mediumRockSpawner.get(i).tick();
 			if (mediumRockSpawner.get(i).isOffScreen() && i < 10){
 				mediumRockSpawner.remove(i);
-				mediumRockSpawner.add(new medium_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+				mediumRockSpawner.add(new medium_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),45));
 				mediumRockSpawner.get(i).tick();
 			} 
 		}
@@ -106,7 +106,7 @@ public class GameState extends State{
 			bigRockSpawner.get(i).tick();
 			if (bigRockSpawner.get(i).isOffScreen()){
 				bigRockSpawner.remove(i);
-				bigRockSpawner.add(new Big_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+				bigRockSpawner.add(new Big_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),45));
 				bigRockSpawner.get(i).tick();
 			} 
 		}
@@ -115,7 +115,7 @@ public class GameState extends State{
 			fireRockSpawner.get(i).tick();
 			if (fireRockSpawner.get(i).isOffScreen()){
 				fireRockSpawner.remove(i);
-				fireRockSpawner.add(new Fire_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+				fireRockSpawner.add(new Fire_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),45));
 				fireRockSpawner.get(i).tick();
 			} 
 		}
@@ -124,7 +124,7 @@ public class GameState extends State{
 			iceRockSpawner.get(i).tick();
 			if (iceRockSpawner.get(i).isOffScreen()){
 				iceRockSpawner.remove(i);
-				iceRockSpawner.add(new ice_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+				iceRockSpawner.add(new ice_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),45));
 				iceRockSpawner.get(i).tick();
 			} 
 		}
@@ -132,7 +132,7 @@ public class GameState extends State{
 			bootRockSpawner.get(i).tick();
 			if (bootRockSpawner.get(i).isOffScreen()){
 				bootRockSpawner.remove(i);
-				bootRockSpawner.add(new boot_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+				bootRockSpawner.add(new boot_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),45));
 				bootRockSpawner.get(i).tick();
 			} 
 		}
@@ -140,7 +140,7 @@ public class GameState extends State{
 			heartRockSpawner.get(i).tick();
 			if (heartRockSpawner.get(i).isOffScreen()){
 				heartRockSpawner.remove(i);
-				heartRockSpawner.add(new heart_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+				heartRockSpawner.add(new heart_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),45));
 				heartRockSpawner.get(i).tick();
 			} 
 		}
@@ -197,7 +197,7 @@ public class GameState extends State{
 		for (int i = 0; i < list.size(); i++) {
 			if (player.bound().intersects(list.get(i).bound())) {
 				list.remove(i);
-				list.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0));
+				list.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),45));
 				list.get(i).tick();
 				//commented out the minus health logic, now is increase score for each rock
 				try {

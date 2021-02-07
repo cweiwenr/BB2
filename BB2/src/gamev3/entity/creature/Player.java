@@ -1,6 +1,7 @@
 package gamev3.entity.creature;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
@@ -31,10 +32,16 @@ public class Player extends Creature{
 		bounds.width = 10;
 		bounds.height = 30;
 		
-		//Animations
-		animRight = new Animation(30, Assets.player_right);
-		animStill = new Animation(150,Assets.player_still);
-		animLeft = new Animation(30,Assets.player_left);
+		if (this.id == 1) {
+			animRight = new Animation(30, Assets.player_right);
+			animStill = new Animation(150,Assets.player_still);
+			animLeft = new Animation(30,Assets.player_left);
+		}else {
+			animRight = new Animation(30, Assets.player2_right);
+			animStill = new Animation(150,Assets.player2_still);
+			animLeft = new Animation(30,Assets.player2_left);
+		}
+
 	}
 
 	@Override
@@ -68,12 +75,18 @@ public class Player extends Creature{
 	public void render(Graphics g) {
 		//drawimage takes in an int thus need to type cast
 		g.drawImage(getCurrentAnimationFrame(), (int)x, (int)y, null);
+			
+		
+		g.setColor(Color.WHITE);
+		g.setFont(new Font("Helvetica", Font.BOLD, 12));
+		
 		if (this.id == 1) {
-			g.drawString(("Player 1 health: "+Float.toString(this.life)), 15, 15);
-			g.drawString(("Player 1 points: " + Float.toString(this.points)), 900, 15);
+			g.drawString(("Player 1 health: "+Float.toString(this.life)), 15, 18);
+			g.drawString(("Player 1 points: " + Float.toString(this.points)), 15, 35);
 		}else {
-			g.drawString(("Player 2 health: "+Float.toString(this.life)), 15, 30);
-			g.drawString(("Player 2 points: "+Float.toString(this.points)), 900, 30);
+			g.setColor(Color.ORANGE);
+			g.drawString(("Player 2 health: "+Float.toString(this.life)), 900, 18);
+			g.drawString(("Player 2 points: "+Float.toString(this.points)), 900, 35);
 		}
 		
 		//check collision box around player

@@ -1,5 +1,6 @@
 package gamev3.entity.creature;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import gamev3.GameMain;
@@ -27,6 +28,16 @@ public class Background extends Entity{
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub
 		g.drawImage(Assets.background, 0, 0, null);
+		// Draw out scoreboard banner
+		g.setColor(new Color(0x5a535b));
+		g.fillRect(0, 0, 1024, 45);
+		
+		// Set up polygon coordinate
+		int polyX[] = {0, 576, 448, 0};
+		int polyY[] = {0, 0, 45, 45};
+		
+		g.setColor(new Color(0x3f3c47));
+		g.fillPolygon(polyX, polyY, 4);
 	}//test
 
 }
