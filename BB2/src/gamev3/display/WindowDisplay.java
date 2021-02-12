@@ -1,10 +1,22 @@
 package gamev3.display;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.Timer;
+
+import gamev3.states.State;
 
 public class WindowDisplay {
+	
+	JFrame window;
 
 	//a window gives the gave the x minimize maximize buttons
 	private JFrame frame;
@@ -46,7 +58,10 @@ public class WindowDisplay {
 		//adding the canvas onto the frame
 		frame.add(canvas);
 		frame.pack();
+		
+		
 	}
+	
 	
 	//so that we can access canvas properly and easily
 	//this is important because canvas allows us to draw things on the screen

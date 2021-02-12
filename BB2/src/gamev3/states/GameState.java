@@ -9,6 +9,7 @@ import gamev3.entity.creature.Fire_rock;
 import gamev3.entity.creature.Player;
 import gamev3.entity.creature.Rocks;
 import gamev3.entity.creature.Smoll_rock;
+import gamev3.entity.creature.TimerDisplay;
 import gamev3.entity.creature.medium_rock;
 import gamev3.entity.creature.ice_rock;
 import gamev3.entity.creature.boot_rock;
@@ -22,6 +23,7 @@ public class GameState extends State{
 	private Player player;
 	private Player player2;
 	private Background background;
+	private TimerDisplay timerdisplay;
 	//private EntityManager entityManager;
 	//private Rocks rock;
 	//lets try to experiment with arraylist for rock spawner
@@ -39,12 +41,13 @@ public class GameState extends State{
 	public GameState(Handler handler) {
 		super(handler);
 		//making all objects
+		timerdisplay = new TimerDisplay(handler,0,0);
 		background = new Background(handler,0,0);
 		player = new Player(handler, 256, 410, 1);
 		player2 = new Player(handler, 768, 410, 2);
 		//rock = new Rocks(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),0);
 		//entityManager = new EntityManager(handler);
-		
+		timerdisplay.start();
 		for (int i = 0; i < NUM_ROCK; i++) {
 			smallRockSpawner.add(new Smoll_rock(handler, (float)(Math.random() * (1024 - 0 + 1)+ 0),45));
 		}
@@ -150,12 +153,12 @@ public class GameState extends State{
 
 	@Override
 	public void render(Graphics g) {
-		// TODO Auto-generated method stub	
-		
+		// TODO Auto-generated method stub
 		background.render(g);
 		//entityManager.render(g);
 		player.render(g);
 		player2.render(g);
+		timerdisplay.render(g);
 		
 		for (int i = 0; i < smallRockSpawner.size(); i++) {
 			smallRockSpawner.get(i).render(g);
@@ -219,7 +222,6 @@ public class GameState extends State{
 							player.setLife((float)(player.getLife()+10));
 						}
 					}
-
 				}
 				catch(Exception e) {
 					System.out.println("Effect Error");
