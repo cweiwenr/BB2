@@ -27,7 +27,7 @@ public class heart_rock extends Rocks{
 	@Override
 	public void tick() {
 		//random speed per rock
-		y += rock_speed;
+		move();
 	}
 
 	@Override

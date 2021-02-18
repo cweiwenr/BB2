@@ -6,9 +6,9 @@ import java.awt.Rectangle;
 import gamev3.Handler;
 import gamev3.entity.Entity;
 
-public abstract class Creature extends Entity{
+public abstract class Creature extends Entity implements movement{
 
-	public static final float DEFAULT_HEALTH = 10;
+	public static final float DEFAULT_HEALTH = 100;
 	public static final float DEFAULT_POINTS = 0;
 	public static final float DEFAULT_SPEED = 3.0f;
 	public static final int DEFAULT_CHARACTER_WIDTH = 20,

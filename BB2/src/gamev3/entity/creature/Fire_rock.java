@@ -10,8 +10,8 @@ public class Fire_rock extends Rocks{
 	
 	public Fire_rock(Handler handler, float x, float y) {
 		super(handler, x, y);
-		damage = 5;
-		rock_point = 0;
+		damage = 0;
+		rock_point = 10;
 		rock_speed = (float)(Math.random() * (5 - 3 + 1) + 3);;
 		rock_size = 50;
 		effect = 1;
@@ -26,7 +26,7 @@ public class Fire_rock extends Rocks{
 	@Override
 	public void tick() {
 		//random speed per rock
-		y += rock_speed;
+		move();
 	}
 
 	@Override

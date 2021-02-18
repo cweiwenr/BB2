@@ -12,7 +12,7 @@ public class boot_rock extends Rocks{
 	public boot_rock(Handler handler, float x, float y) {
 		super(handler, x, y);
 		damage = 0;
-		rock_point = 0;
+		rock_point = 5;
 		rock_speed = (float)(Math.random() * (5 - 3 + 1) + 3);;
 		rock_size = 50;
 		effect = 2;
@@ -27,7 +27,7 @@ public class boot_rock extends Rocks{
 	@Override
 	public void tick() {
 		//random speed per rock
-		y += rock_speed;
+		move();
 	}
 
 	@Override

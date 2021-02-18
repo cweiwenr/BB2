@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 import gamev3.Handler;
 import gamev3.entity.Entity;
 
-public abstract class Rocks extends Entity{
+public abstract class Rocks extends Entity implements movement{
 
 	public final static int ROCK_WIDTH = 10;
 	public final static int ROCK_HEIGHT = 10;
@@ -32,25 +32,14 @@ public abstract class Rocks extends Entity{
 			return false;
 		}
 	}
+	public void move() {
+		y += rock_speed;
+	}
 	
 	public int getSize() {
 		return rock_size;
 	}
-	/*
-	public int getRectx() {
-		return (int)(x+bounds.x);
-	}
-	
-	public int getRectrightx() {
-		return (int)(x+bounds.x+bounds.width);
-	}
-	
-	public int getRectHeight() {
-		return (int)(y+bounds.y+bounds.height);
-	}
-	public int getRecty() {
-		return (int)(y+bounds.y);
-	}*/
+
 	public Rectangle bound() {
 		return (new Rectangle((int)(x + bounds.x),(int)(y+bounds.y),
 			bounds.width,bounds.height));
