@@ -1,4 +1,4 @@
-package gamev3.entity.creature;
+package gamev3.states;
 
 import java.awt.Graphics;
 
