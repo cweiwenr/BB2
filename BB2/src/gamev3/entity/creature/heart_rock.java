@@ -13,7 +13,7 @@ public class heart_rock extends Rocks{
 		super(handler, x, y);
 		damage = 0;
 		rock_point = 20;
-		rock_speed = (float)(Math.random() * (3 - 3 + 1)+3);
+		rock_speed = getRockSpeed();
 		rock_size = 50;
 		effect = 3;
 		
@@ -23,9 +23,16 @@ public class heart_rock extends Rocks{
 		bounds.height = rock_size - bounds.y * 2;
 	}
 
+
 	public int getEffect() {
 		return 3;
 	}
+
+	public float getRockSpeed() {
+		return (float)(Math.random() * (3 - 3 + 1)+3);
+	}
+	
+
 	@Override
 	public void tick() {
 		//random speed per rock
