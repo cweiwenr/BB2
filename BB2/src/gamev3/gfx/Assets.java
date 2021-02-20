@@ -7,6 +7,7 @@ public class Assets {
 
 	//some dimensions to represent width and height of each stickman in the spritesheet
 	private static final int width = 20, height = 40, w=55;
+	private static final int buttonwidth = 598, buttonheight = 196;
 	//all the image variables
 	public static BufferedImage player, player2, background, rocks, fireRocks,iceRocks,bootRocks,heartRocks,menu;
 	public static BufferedImage[] player_right, player_left, player_still,player2_left,player2_right,player2_still;
@@ -23,8 +24,8 @@ public class Assets {
 		
 		//trying to add button
 		button_start = new BufferedImage[2];
-		button_start[0] = sheet.crop(0, 40, width, height);
-		button_start[1] = sheet.crop(20, 40, width, height);
+		button_start[0] = start_button_icon.crop(598, 0, buttonwidth, buttonheight); 
+		button_start[1] = start_button_icon.crop(0, 0, buttonwidth, buttonheight);
 		
 
 		SpriteSheet fireRock = new SpriteSheet(ImageLoader.loadImage("/textures/fire.png"));
