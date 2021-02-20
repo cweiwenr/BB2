@@ -15,7 +15,8 @@ public class Assets {
 	//this init function is so that the game loads in everything once, instead of having
 	//this in the GameMain loops as it is very inefficient
 	public static void init() {
-		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/stickman-anim.png"));
+		//SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/stickman-anim.png"));
+		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/newChar.png"));
 		SpriteSheet sheet2 = new SpriteSheet(ImageLoader.loadImage("/textures/player2.png"));
 		SpriteSheet rock = new SpriteSheet(ImageLoader.loadImage("/textures/rocks.png"));
 		SpriteSheet start_button_icon = new SpriteSheet(ImageLoader.loadImage("/textures/start_button.png"));
@@ -32,6 +33,17 @@ public class Assets {
 		SpriteSheet heartRock = new SpriteSheet(ImageLoader.loadImage("/textures/heart.png"));
 		
 		//animation sprite
+		player_still = new BufferedImage[1];
+		player_still[0] = sheet.crop(0, 0, w, 49);
+		
+		player_right = new BufferedImage[1];
+		player_right[0] = sheet.crop(100,0 , w, 49);
+		
+		player_left = new BufferedImage[1];
+		player_left[0] = sheet.crop(0, 0, w, 49);
+		
+		//animation sprite
+		/*
 		player2_right = new BufferedImage[8];
 		player2_right[0] = sheet2.crop(0, 40, width, height);
 		player2_right[1] = sheet2.crop(20, 40, width, height);
@@ -93,9 +105,12 @@ public class Assets {
 		player_still[6] = sheet.crop(120, 120, width, height);
 		player_still[7] = sheet.crop(140, 120, width, height);
 		
+		*/
+		
 		//player = sheet.crop(width, 3*height, width, height);
 		//player2 = sheet.crop(width,  3*height, width, height);
-		background = ImageLoader.loadImage("/textures/background1.png");
+		background = ImageLoader.loadImage("/textures/bgtest2.jpg");
+		menu = ImageLoader.loadImage("/textures/bgtest2.jpg");
 		rocks = rock.crop(128, 0, 128, 128);
 		fireRocks = fireRock.crop(0,  0, 128,  128);
 		iceRocks = iceRock.crop(0,  0, 128,  128);
