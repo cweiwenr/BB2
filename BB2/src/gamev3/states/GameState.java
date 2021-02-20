@@ -232,24 +232,21 @@ public class GameState extends State{
 				//commented out the minus health logic, now is increase score for each rock
 				try {
 					if(list.get(i).getEffect()==0) {
-						//System.out.println("got forzen");
-						while(player.getSpeed()>1) {
-							player.setSpeed((float)(player.getSpeed()*0.75));
+						if(player.getSpeed()>1) {
+							player.setSpeed((float)(player.getSpeed()*0.5));
 						}
 					}
 					else if(list.get(i).getEffect()==2) {
-						//System.out.println("got boot");
-						while(player.getSpeed()<7) {
-							player.setSpeed((float)(player.getSpeed()*1.5));
+						if(player.getSpeed()<7) {
+							player.setSpeed((float)(player.getSpeed()*2));
 						}
 					}
-					/*
+					
 					else if(list.get(i).getEffect()==3) {
-						//System.out.println("got boot");
-						while(player.getLife()<50) {
-							player.setLife((float)(player.getLife()+10));
+						if(player.getLife()<100) {
+							player.setLife((float)(player.getLife()+50));
 						}
-					}*/
+					}
 				}
 				catch(Exception e) {
 					System.out.println("Effect Error");

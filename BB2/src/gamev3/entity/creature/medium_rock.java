@@ -12,7 +12,7 @@ public class medium_rock extends Rocks{
 		super(handler, x, y);
 		damage = 4;
 		rock_point = 0;
-		rock_speed = (float)(Math.random() * (2 - 2 + 1) + 2);;
+		rock_speed = getRockSpeed();
 		rock_size = 60;
 		effect = 1;
 		
@@ -20,6 +20,10 @@ public class medium_rock extends Rocks{
 		bounds.y = 12;
 		bounds.width = rock_size - bounds.x * 2;
 		bounds.height = rock_size - bounds.y * 2;
+	}
+	
+	public float getRockSpeed() {
+		return (float)(Math.random() * (2 - 2 + 1) + 2);
 	}
 
 	

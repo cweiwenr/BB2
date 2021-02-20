@@ -12,7 +12,7 @@ public class Big_rock extends Rocks{
 		super(handler, x, y);
 		damage = 5;
 		rock_point = 0;
-		rock_speed = (float)(Math.random() * (1 - 1 + 1) + 1);;
+		rock_speed = getRockSpeed();
 		rock_size = 120;
 		effect = 1;
 		
@@ -21,7 +21,11 @@ public class Big_rock extends Rocks{
 		bounds.width = rock_size - bounds.x * 2;
 		bounds.height = rock_size - bounds.y * 2;
 	}
-
+	
+	public float getRockSpeed() {
+		return (float)(Math.random() * (1 - 1 + 1) + 1);
+	}
+	
 	
 	@Override
 	public void tick() {

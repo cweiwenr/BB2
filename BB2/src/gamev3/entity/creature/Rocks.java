@@ -53,6 +53,9 @@ public abstract class Rocks extends Entity implements movement{
 	public int getEffect() {
 		return effect;
 	}
+	public float getRockSpped() {
+		return (float)(Math.random() * (5 - 3 + 1) + 3);
+	}
 	public abstract void tick();
 	
 	public abstract void render(Graphics g);
