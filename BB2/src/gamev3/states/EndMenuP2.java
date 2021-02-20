@@ -11,7 +11,6 @@ import java.io.IOException;
 
 import gamev3.Handler;
 import gamev3.entity.creature.Background;
-import gamev3.entity.creature.MenuTest;
 import gamev3.entity.creature.Player;
 import gamev3.gfx.Assets;
 import gamev3.ui.ClickListener;
