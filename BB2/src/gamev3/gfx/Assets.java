@@ -6,9 +6,9 @@ import java.awt.image.BufferedImage;
 public class Assets {
 
 	//some dimensions to represent width and height of each stickman in the spritesheet
-	private static final int width = 20, height = 40;
+	private static final int width = 20, height = 40, w=55;
 	//all the image variables
-	public static BufferedImage player, player2, background, rocks, fireRocks,iceRocks,bootRocks,heartRocks;
+	public static BufferedImage player, player2, background, rocks, fireRocks,iceRocks,bootRocks,heartRocks,menu;
 	public static BufferedImage[] player_right, player_left, player_still,player2_left,player2_right,player2_still;
 	public static BufferedImage[] button_start;
 	
