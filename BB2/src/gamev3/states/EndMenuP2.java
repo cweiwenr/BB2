@@ -18,6 +18,8 @@ import gamev3.ui.ClickListener;
 import gamev3.ui.UIImageButton;
 import gamev3.ui.UIManager;
 import gamev3.GameMain;
+import gamev3.states.*;
+
 //every state you have should extend state
 public class EndMenuP2 extends State {
 
