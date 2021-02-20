@@ -21,10 +21,7 @@ public class Fire_rock extends Rocks{
 		bounds.width = rock_size - bounds.x * 2;
 		bounds.height = rock_size - bounds.y * 2;
 	}
-
-	public float getRockSpeed() {
-		return (float)(Math.random() * (5 - 3 + 1) + 3);
-	}
+	
 	@Override
 	public void tick() {
 		//random speed per rock

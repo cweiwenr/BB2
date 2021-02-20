@@ -21,7 +21,7 @@ public class Big_rock extends Rocks{
 		bounds.width = rock_size - bounds.x * 2;
 		bounds.height = rock_size - bounds.y * 2;
 	}
-	
+	//In Big_rock class extends Rocks class
 	public float getRockSpeed() {
 		return (float)(Math.random() * (1 - 1 + 1) + 1);
 	}

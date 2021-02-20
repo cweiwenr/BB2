@@ -23,7 +23,7 @@ public class Smoll_rock extends Rocks{
 	}
 	
 	public float getRockSpeed() {
-		return (float)(Math.random() * (3 - 3 + 1) + 3);
+		return (float)(Math.random() * (3 - 3 + 1) + 5);
 	}
 
 	
