@@ -43,6 +43,22 @@ public class Player extends Creature{
 		}
 
 	}
+	
+	//function to reset gamestate
+	public void reload(){
+	    //Assets.init();
+		if (this.id==1)
+		{
+			newGame = new EndMenuP2(handler);
+		    	State.setState(newGame);
+		}
+		
+		if (this.id == 2)
+		{
+			newGame = new EndMenuP1(handler);
+		    	State.setState(newGame);	
+		}  
+	}
 
 	@Override
 	public void tick() {
@@ -89,6 +105,21 @@ public class Player extends Creature{
 			g.drawString(("Player 2 points: "+Float.toString(this.points)), 900, 35);
 		}
 		
+		if(this.id==1)
+		{
+			if(this.life <= 0)
+			{			
+				reload();	
+			}
+		}
+		
+		if(this.id==2)
+		{
+			if(this.life <= 0)
+			{			
+				reload();	
+			}
+		}
 		//check collision box around player
 		//remove this code after finishing collision
 		/*
