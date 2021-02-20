@@ -50,9 +50,8 @@ public abstract class Rocks extends Entity implements movement{
 	public float getPoints() {
 		return(float)rock_point;
 	}
-	public int getEffect() {
-		return effect;
-	}
+	public abstract int getEffect();
+
 	public abstract void tick();
 	
 	public abstract void render(Graphics g);

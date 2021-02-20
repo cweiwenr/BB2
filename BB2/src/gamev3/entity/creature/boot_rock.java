@@ -23,7 +23,9 @@ public class boot_rock extends Rocks{
 		bounds.height = rock_size - bounds.y * 2;
 	}
 
-	
+	public int getEffect() {
+		return 2;
+	}
 	@Override
 	public void tick() {
 		//random speed per rock

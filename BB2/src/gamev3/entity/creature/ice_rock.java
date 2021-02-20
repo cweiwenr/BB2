@@ -13,7 +13,7 @@ public class ice_rock extends Rocks{
 		super(handler, x, y);
 		damage = 0;
 		rock_point = 5;
-		rock_speed = (float)(Math.random() * (5 - 3 + 1) + 1);;
+		rock_speed = (float)(Math.random() * (5 - 3 + 1) + 1);
 		rock_size = 50;
 		effect = 0;
 		
@@ -23,7 +23,9 @@ public class ice_rock extends Rocks{
 		bounds.height = rock_size - bounds.y * 2;
 	}
 
-	
+	public int getEffect() {
+		return 0;
+	}
 	@Override
 	public void tick() {
 		//random speed per rock
