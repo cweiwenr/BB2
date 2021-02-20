@@ -8,12 +8,18 @@ import java.awt.image.BufferedImage;
 import gamev3.Handler;
 import gamev3.gfx.Animation;
 import gamev3.gfx.Assets;
+import gamev3.states.EndMenuP1;
+import gamev3.states.EndMenuP2;
+import gamev3.states.*;
 
 //now this is the class that we want the player to control
 public class Player extends Creature{
 	
 	//Animations
 	private Animation animRight, animStill, animLeft;
+	
+	//public state handler
+	public State newGame;
 	
 	//this variable allows us to access gamemain properties
 	private Handler handler;
