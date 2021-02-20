@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 import gamev3.Handler;
+import gamev3.states.MenuTest;
 import gamev3.gfx.Assets;
 import gamev3.ui.ClickListener;
 import gamev3.ui.UIImageButton;
@@ -13,9 +14,11 @@ import gamev3.ui.UIManager;
 public class Menu extends State {
 
 	private UIManager uiManager;
-
+	private MenuTest menu;
+	
 	public Menu(Handler handler) {
 		super(handler);
+		menu = new MenuTest(handler,0,0);
 		uiManager = new UIManager(handler);
 		handler.getMouseManager().setUIManager(uiManager);
 
@@ -39,6 +42,7 @@ public class Menu extends State {
 
 	@Override
 	public void render(Graphics g) {
+		menu.render(g);
 		uiManager.render(g);
 	}
 
