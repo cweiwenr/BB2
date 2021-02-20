@@ -42,10 +42,15 @@ public class MouseManager implements MouseListener, MouseMotionListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if(e.getButton() == MouseEvent.BUTTON1)
-			leftPressed = false;
-		else if (e.getButton() == MouseEvent.BUTTON3)
-			rightPressed = false;
+		try {
+			if(e.getButton() == MouseEvent.BUTTON1)
+				leftPressed = false;
+			else if (e.getButton() == MouseEvent.BUTTON3)
+				rightPressed = false;
+		}catch (RuntimeException a){
+			System.out.println("Mouse pressed error");
+		}
+		
 	}
 
 	
