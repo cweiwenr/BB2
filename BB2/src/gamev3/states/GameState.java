@@ -29,7 +29,7 @@ public class GameState extends State{
 	//private Rocks rock;
 	//lets try to experiment with arraylist for rock spawner
 	
-	final private int NUM_ROCK = 7;	//total rock on screen at one time
+	final private int NUM_ROCK = 6;	//total rock on screen at one time
 	private ArrayList<Rocks> smallRockSpawner = new ArrayList<Rocks>();
 	private ArrayList<Rocks> mediumRockSpawner = new ArrayList<Rocks>();
 	private ArrayList<Rocks> bigRockSpawner = new ArrayList<Rocks>();
@@ -241,22 +241,14 @@ public class GameState extends State{
 							player.setSpeed((float)(player.getSpeed()*2));
 						}
 					}
-					
-					else if(list.get(i).getEffect()==3) {
-						if(player.getLife()<100) {
-							player.setLife((float)(player.getLife()+50));
-						}
-					}
 				}
 				catch(Exception e) {
-					System.out.println("Effect Error");
+					System.out.println("debuff failure");
 				}
 				player.setLife(player.getLife()-list.get(i).getDamage());
 				player.setPoints(player.getPoints()+list.get(i).getPoints());
-
 			}
 		}
-
 	}
 	public void checkHit(Player player) {
 		checking(smallRockSpawner, player);

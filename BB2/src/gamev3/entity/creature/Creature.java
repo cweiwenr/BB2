@@ -92,19 +92,7 @@ public abstract class Creature extends Entity implements movement{
 	public void setSpeed(float speed) {
 		this.speed = speed;
 	}
-	/*
-	public int getHitx() {
-		return (int)(x+bounds.x);
-	}
-	public int getHity() {
-		return (int)(y+bounds.y);
-	}
-	public int getHitWidth() {
-		return (int)(x+bounds.x+bounds.width);
-	}
-	public int getHitHeight() {
-		return (int)(y+bounds.y+bounds.height);
-	}*/
+
 	public Rectangle bound() {
 		return (new Rectangle((int)(x + bounds.x),(int)(y+bounds.y),
 				bounds.width,bounds.height));
