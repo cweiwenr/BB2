@@ -11,7 +11,7 @@ public class Big_rock extends Rocks{
 	public Big_rock(Handler handler, float x, float y) {
 		super(handler, x, y);
 		damage = 5;
-		rock_point = 0;
+		rock_point = -2;
 		rock_speed = getRockSpeed();
 		rock_size = 120;
 		effect = 1;

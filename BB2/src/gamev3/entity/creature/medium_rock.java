@@ -11,7 +11,7 @@ public class medium_rock extends Rocks{
 	public medium_rock(Handler handler, float x, float y) {
 		super(handler, x, y);
 		damage = 4;
-		rock_point = 0;
+		rock_point = -2;
 		rock_speed = getRockSpeed();
 		rock_size = 60;
 		effect = 1;
