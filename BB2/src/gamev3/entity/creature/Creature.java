@@ -100,4 +100,5 @@ public abstract class Creature extends Entity implements movement{
 	public abstract void tick();
 	
 	public abstract void render(Graphics g);
+	
 }

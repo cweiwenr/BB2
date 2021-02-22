@@ -73,9 +73,9 @@ public class EndMenuP1 extends State {
 		g.fillRect(320, 200, 400, 100);
 		g.setColor(new Color(34,139,34));
 		g.setFont(PixelFont.pixellarge);
-		g.drawString("Game Over. Player 1 wins!",340,250);
+		g.drawString("Game Over. Player 1 wins!",450,250);
 		
-		g.drawString("Press Start to play again",370,280);
+		g.drawString("Click Start to play again",455,280);
 		uiManager.render(g);
 	}
 }

@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.Collections;
 
 import gamev3.Handler;
 import gamev3.gfx.Animation;
@@ -24,6 +26,12 @@ public class Player extends Creature{
 	//this variable allows us to access gamemain properties
 	private Handler handler;
 	private int id;
+	
+	//Variable to get score 
+	boolean player1wins;
+	boolean player2wins;
+	float player1points;
+	float player2points;
 	
 	public Player(Handler handler, float x, float y, int id) {
 		super(handler, x, y, Creature.DEFAULT_CHARACTER_WIDTH, Creature.DEFAULT_CHARACTER_HEIGHT);
@@ -53,15 +61,15 @@ public class Player extends Creature{
 	//function to reset gamestate
 	public void reload(){
 	    //Assets.init();
-		if (this.id==1)
+		if (player1wins == true)
 		{
-			newGame = new EndMenuP2(handler);
+			newGame = new EndMenuP1(handler);
 		    	State.setState(newGame);
 		}
 		
-		if (this.id == 2)
+		if (player2wins == true)
 		{
-			newGame = new EndMenuP1(handler);
+			newGame = new EndMenuP2(handler);
 		    	State.setState(newGame);	
 		}  
 	}
@@ -98,41 +106,34 @@ public class Player extends Creature{
 		//drawimage takes in an int thus need to type cast
 		g.drawImage(getCurrentAnimationFrame(), (int)x, (int)y, null);
 			
-		
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Helvetica", Font.BOLD, 12));
 		
+	
 		if (this.id == 1) {
-			g.drawString(("Player 1 health: "+Float.toString(this.life)), 15, 18);
+			g.drawString(("Player 1 health: " + Float.toString(this.life)), 15, 18);
 			g.drawString(("Player 1 points: " + Float.toString(this.points)), 15, 35);
-		}else {
+			player1points = getPoints();
+		} else {
 			g.setColor(Color.ORANGE);
-			g.drawString(("Player 2 health: "+Float.toString(this.life)), 900, 18);
-			g.drawString(("Player 2 points: "+Float.toString(this.points)), 900, 35);
+			g.drawString(("Player 2 health: " + Float.toString(this.life)), 900, 18);
+			g.drawString(("Player 2 points: " + Float.toString(this.points)), 900, 35);
+			player2points = getPoints();
 		}
 		
-		if(this.id==1)
-		{
-			if(this.life <= 0)
-			{			
-				reload();	
+		if (getLife() <= 0.0) {
+			if (player1points > player2points) {
+				player1wins = true;
 			}
-		}
-		
-		if(this.id==2)
-		{
-			if(this.life <= 0)
-			{			
-				reload();	
+			else {
+				player2wins = true;
 			}
+			reload();
 		}
-		//check collision box around player
-		//remove this code after finishing collision
-		/*
-		g.setColor(Color.red);
-		g.fillRect((int)(x + bounds.x),(int)(y+bounds.y),
-				bounds.width,bounds.height);*/
 	}
+		
+	
+	
 
 	private String toString(float life) {
 		// TODO Auto-generated method stub
