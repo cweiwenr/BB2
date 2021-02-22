@@ -18,12 +18,16 @@ import gamev3.ui.UIImageButton;
 import gamev3.ui.UIManager;
 import gamev3.GameMain;
 import gamev3.states.*;
+import gamev3.display.PixelFont;
+
 //every state you have should extend state
 public class EndMenuP1 extends State {
 
 	private UIManager uiManager;
 	private MenuTest endmenu1;
 	private State newgame;
+	String p1points = String.valueOf(Player.getPlayer1points());
+	String p2points = String.valueOf(Player.getPlayer2points());
 	
 	public EndMenuP1(Handler handler) {
 		super(handler);
@@ -67,15 +71,14 @@ public class EndMenuP1 extends State {
 	@Override
 	public void render(Graphics g) {
 		endmenu1.render(g);
-		//g.drawRect(340, 250, 400, 50);
 		g.setColor(new Color(255,255,255,128));
-		//g.setColor(Color.green.darker());
-		g.fillRect(320, 200, 400, 100);
-		g.setColor(new Color(34,139,34));
-		g.setFont(PixelFont.pixellarge);
-		g.drawString("Game Over. Player 1 wins!",450,250);
-		
-		g.drawString("Click Start to play again",455,280);
+		g.fillRect(400, 200, 230, 100);
+		g.setColor(Color.black);
+		g.setFont(new Font("pixel", Font.PLAIN, 15));
+		g.drawString("Game Over. Player 1 wins!",405,220);
+		g.drawString("Press Start to play again",405,240);
+		g.drawString("Player 1 score: "+p1points,405,260);
+		g.drawString("Player 2 score: "+p2points,405,280);
 		uiManager.render(g);
 	}
 }
