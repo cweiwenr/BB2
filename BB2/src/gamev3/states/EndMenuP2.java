@@ -10,14 +10,15 @@ import java.io.File;
 import java.io.IOException;
 
 import gamev3.Handler;
+import gamev3.display.PixelFont;
 import gamev3.entity.creature.Background;
+import gamev3.states.*;
 import gamev3.entity.creature.Player;
 import gamev3.gfx.Assets;
 import gamev3.ui.ClickListener;
 import gamev3.ui.UIImageButton;
 import gamev3.ui.UIManager;
 import gamev3.GameMain;
-import gamev3.states.*;
 
 //every state you have should extend state
 public class EndMenuP2 extends State {
@@ -25,6 +26,8 @@ public class EndMenuP2 extends State {
 	private UIManager uiManager;
 	private MenuTest endmenu2;
 	private State newgame;
+	String p1points = String.valueOf(Player.getPlayer1points());
+	String p2points = String.valueOf(Player.getPlayer2points());
 	
 	public EndMenuP2(Handler handler) {
 		super(handler);
@@ -68,15 +71,14 @@ public class EndMenuP2 extends State {
 	@Override
 	public void render(Graphics g) {
 		endmenu2.render(g);
-		//g.drawRect(340, 250, 400, 50);
 		g.setColor(new Color(255,255,255,128));
-		//g.setColor(Color.green.darker());
-		g.fillRect(320, 200, 400, 100);
-		g.setColor(new Color(34,139,34));
-		g.setFont(PixelFont.pixellarge);
-		g.drawString("Game Over. Player 2 wins!",450,250);
-		
-		g.drawString("Click Start to play again",455,280);
+		g.fillRect(400, 200, 230, 100);
+		g.setColor(Color.black);
+		g.setFont(new Font("pixel", Font.PLAIN, 15));
+		g.drawString("Game Over. Player 2 wins!",405,220);
+		g.drawString("Press Start to play again",405,240);
+		g.drawString("Player 1 score: "+p1points,405,260);
+		g.drawString("Player 2 score: "+p2points,405,280);
 		uiManager.render(g);
 	}
 }
