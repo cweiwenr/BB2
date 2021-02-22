@@ -30,8 +30,8 @@ public class Player extends Creature{
 	//Variable to get score 
 	boolean player1wins;
 	boolean player2wins;
-	float player1points;
-	float player2points;
+	static float player1points;
+	static float player2points;
 	
 	public Player(Handler handler, float x, float y, int id) {
 		super(handler, x, y, Creature.DEFAULT_CHARACTER_WIDTH, Creature.DEFAULT_CHARACTER_HEIGHT);
@@ -148,5 +148,11 @@ public class Player extends Creature{
 		}else {
 			return animStill.getCurrentFrame();
 		}
+	}
+	public static float getPlayer1points() {
+		return player1points;
+	}
+	public static float getPlayer2points() {
+		return player2points;
 	}
 }
