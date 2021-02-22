@@ -155,4 +155,5 @@ public class Player extends Creature{
 	public static float getPlayer2points() {
 		return player2points;
 	}
+	
 }
